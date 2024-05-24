@@ -36,7 +36,7 @@ const ContactForm = () => {
 						// onSubmit={handleSubmit(onSubmit)}
 						className="mt-[29px] shadow-sm mx-auto z-[1] bg-[#f9f9f9] rounded-[11.89px] lg:rounded-[20.22px] lg:w-[900px]  px-[16px] lg:px-[30px] pt-[36.25px] lg:pt-[60px] pb-[17.03px] lg:pb-[100.46px] mb-[30px]"
 					>
-						<h3 className="font-black max-w-[508px] text-[20px] text-_25253C leading-[41.3px] text-center lg:text-[40px] lg:font-bold lg:leading-[61.6px] lg:text-left">
+						<h3 className="font-black max-w-[508px] text-[30px] text-_25253C leading-[41.3px] text-center lg:text-[40px] lg:font-bold lg:leading-[61.6px] lg:text-left">
 							Reach out to us
 						</h3>
 						<p className="font-normal text-center md:text-start text-[15px] md:text-[16px] text-[#6F6C90]">

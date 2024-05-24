@@ -3,7 +3,7 @@ import ReactSelect from 'react-select';
 
 const customClassNames = (hasError) => ({
     control: (state) =>
-        `h-[35.28px] lg:h-[59.98px] text-[9.41px] px-4 lg:text-base leading-[14.12px] lg:leading-6 w-full outline-none rounded-[7.93px] lg:rounded-[13.48px] border-black  placeholder:text-C9C7C7${state.isFocused ? '!outline-none !border-E8EBEC !-none' : ''
+        `h-[60px] lg:h-[59.98px] text-[9.41px] px-4 lg:text-base leading-[14.12px] lg:leading-6 w-full outline-none rounded-[7.93px] lg:rounded-[13.48px] border-black  placeholder:text-C9C7C7${state.isFocused ? '!outline-none !border-E8EBEC !-none' : ''
         } ${hasError ? '!border-[red]' : '!border-white'}`,
     option: (state) =>
         state.data === state.selectProps.value
