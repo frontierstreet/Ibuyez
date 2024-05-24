@@ -19,7 +19,7 @@ const ContactHero = () => {
        </div>
      </div>
      <div className='flex-1'>
-         <img src={landingImg} className='pointer-events-none h-[500px] w-[100vw] absolute top-0 left-0 868:h-[600px] 868:w-[100%] z-0' alt="Moving background" />
+         <img src={landingImg} className='pointer-events-none h-[400px] w-[100vw] absolute top-0 left-0 868:h-[600px] 868:w-[100%] z-0' alt="Moving background" />
      </div>
   </div>
   )

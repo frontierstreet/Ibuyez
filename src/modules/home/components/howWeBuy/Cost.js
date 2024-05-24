@@ -17,7 +17,7 @@ const Cost = () => {
                 </p>
                </div>
                <div className=' flex flex-col md:flex-row  items-start gap-5 md:gap-10 w-[100%]'>
-                <div className='  flex-1  bg-white px-5 py-6 rounded-[20px] w-[100%]'>
+                <div className='  flex-1 border bg-white px-5 py-6 rounded-[20px] w-[100%]'>
                   <h3 className='md:text-[30px] md:px-2 mt-4 flex-1 md:leading-[35px] uppercase    950:text-[30px] 950:leading-[40px] text-[20px] leading-[49.24px] text-black font-normal'>
                     SELL ON THE MARKET
 
@@ -26,7 +26,7 @@ const Cost = () => {
                   Sell right away. We can buy your home in days. No showings required.  
                 </p>
                 </div>
-                <div className='  flex-1  bg-white px-5 py-6 rounded-[20px] w-[100%]'>
+                <div className='  flex-1 border bg-white px-5 py-6 rounded-[20px] w-[100%]'>
                   <h3 className='md:text-[30px] mt-4 md:px-2  flex-1 md:leading-[35px] uppercase    950:text-[30px] 950:leading-[40px] text-[20px] leading-[49.24px] text-black font-normal'>
                   Sell on the market
                   </h3>
@@ -34,7 +34,7 @@ const Cost = () => {
                   Go after the best price. If you list with our help, our offer is good for 30 days.
                  </p>
                 </div>
-                <div className='   flex-1  bg-white px-5 py-6 rounded-[20px] w-[100%]'>
+                <div className='   flex-1 border bg-white px-5 py-6 rounded-[20px] w-[100%]'>
                   <h3 className='md:text-[30px] mt-4 md:px-2  flex-1 md:leading-[35px] uppercase    950:text-[30px] 950:leading-[40px] text-[20px] leading-[49.24px] text-black font-normal'>
                   Sell on the market
                   </h3>
@@ -42,7 +42,7 @@ const Cost = () => {
                   Go after the best price. If you list with our help, our offer is good for 30 days.
                  </p>
                 </div>
-                <div className='   flex-1  bg-white px-5 py-6 rounded-[20px] w-[100%]'>
+                <div className='   flex-1 border bg-white px-5 py-6 rounded-[20px] w-[100%]'>
                   <h3 className='md:text-[30px] mt-4 md:px-2  flex-1 md:leading-[35px] uppercase    950:text-[30px] 950:leading-[40px] text-[20px] leading-[49.24px] text-black font-normal'>
                   Sell on the market
                   </h3>

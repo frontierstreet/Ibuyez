@@ -102,7 +102,7 @@ const TopNav = () => {
         <div>
             <div
                 className={clsx(
-                    'fixed top-[22.07px] lg:top-[49px] flex items-center justify-between h-[40.3px] lg:h-[68px] w-full px-5 lg:pl-[33px] lg:pr-[11px] z-[30] transition-all duration-300 bg-white lg:w-[calc(100%_-_120px)] ml-[50%] translate-x-[-50%] lg:rounded-10 max-w-[1320px] xl:max-w-[100%] ',
+                    'fixed top-[22.07px] lg:top-[49px] flex items-center justify-between h-[40.3px] lg:h-[68px] w-full px-5 lg:pl-[33px] lg:pr-[11px] z-[30] transition-all duration-300 lg:bg-white lg:w-[calc(100%_-_120px)] ml-[50%] translate-x-[-50%] lg:rounded-10 max-w-[1320px] xl:max-w-[100%] ',
                     {
                         'opacity-0 pointer-events-none': isScrolled,
                     }
