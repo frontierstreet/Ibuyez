@@ -48,7 +48,7 @@ const Started = () => {
                         },
                         classNames: {
                             container: () => ` `,
-                            control: state => '!border-none !outline-none w-[350px] 950:w-[450px] !px-4  !rounded-[10px]  !h-[60px] !pl-0 !-none  outline-none border-none text-base text-_25253C placeholder:text-placeholder'
+                            control: state => '!border-none !outline-none w-[320px] 950:w-[450px] !px-4  !rounded-[10px]  !h-[60px] !pl-0 !-none  outline-none border-none text-base text-_25253C placeholder:text-placeholder'
                         }
                     }}
                 />
