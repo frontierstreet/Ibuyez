@@ -21,7 +21,7 @@ const Started = () => {
         defaultValues,
       });
   return (
-    <div className='bg-blue px-4  max-w-[100%] py-10 950:py-20 flex flex-col items-center 950:max-w-[1200px] mx-auto my-[100px] rounded-[40px]'>
+    <div className='bg-blue px-4  max-w-[90%] py-10 950:py-20 flex flex-col items-center 950:max-w-[1200px] mx-auto my-[100px] rounded-[40px]'>
         <div>
          <h3 className='md:text-[60px] flex-1 md:leading-[75px] text-center   950:text-[55px] 950:leading-[96px] text-[30px] leading-[49.24px] text-white font-black'>
             Get Started with IbuyEZ<br className='hidden md:block'/>  Today

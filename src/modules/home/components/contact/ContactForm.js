@@ -30,7 +30,7 @@ const ContactForm = () => {
 
   return (
     <div>
-			<div className="mt-[250px]">
+			<div className="md:mt-[250px]">
 				<div className="flex flex-col items-center justify-center">
 					<form
 						// onSubmit={handleSubmit(onSubmit)}
