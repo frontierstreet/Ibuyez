@@ -1,8 +1,11 @@
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import { Controller, useForm } from "react-hook-form"
 import { useDebouncedLoader, useWindowSize } from "../../../common/hooks"
 import { Button, Select, Input } from "../../../common/components"
 import { reason } from "../../../common/utils/Constant"
+import clsx from "clsx"
+import formService from "services/form-service"
+import { validators } from "modules/common/utils/functions"
 
 const defaultValues = {
 	firstName: "",
@@ -13,26 +16,47 @@ const defaultValues = {
 }
 
 const ContactForm = () => {
-	const [query, setQuery] = useState(null)
 	const [loading, setLoading] = useState(false)
+	const [isSuccess, setIsSuccess] = useState(false)
 	const isLoading = useDebouncedLoader(loading)
 	const {
 		control,
 		handleSubmit,
 		formState: { errors },
-		watch,
-		reset,
-		clearErrors
+		reset
 	} = useForm({
 		defaultValues
 	})
 
+	const onSubmit = async (data) => {
+		setIsSuccess(false)
+		setLoading(true)
+		try {
+			await formService.contactForm({
+				email: data.email,
+				firstName: data.firstName,
+				lastName: data.lastName,
+				supportRequest: data.supportRequest.value,
+				message: data.message
+			})
+			setLoading(false)
+			setIsSuccess(true)
+		} catch (e) {
+			setLoading(true)
+		}
+	}
+
+	useEffect(() => {
+		if (isSuccess) {
+			reset()
+		}
+	}, [isSuccess])
 	return (
-		<div>
+		<div id="contact-form">
 			<div className="md:mt-[250px]">
 				<div className="flex flex-col items-center justify-center">
 					<form
-						// onSubmit={handleSubmit(onSubmit)}
+						onSubmit={handleSubmit(onSubmit)}
 						className="mt-[29px] shadow-sm mx-auto z-[1] bg-[#f9f9f9] rounded-[11.89px] lg:rounded-[20.22px] lg:w-[900px]  px-[16px] lg:px-[30px] pt-[36.25px] lg:pt-[60px] pb-[17.03px] lg:pb-[100.46px] mb-[30px]">
 						<h3 className="font-black max-w-[508px] text-[30px] text-_25253C leading-[41.3px] text-center lg:text-[40px] lg:font-bold lg:leading-[61.6px] lg:text-left">
 							Reach out to us
@@ -45,9 +69,7 @@ const ContactForm = () => {
 								<Controller
 									control={control}
 									name="firstName"
-									// rules={{
-									// 	validate: validators.validateString,
-									// }}
+									rules={{ validate: validators.validateString }}
 									render={({ field: { onChange, value, ref } }) => (
 										<Input
 											placeholder={"Your First Name"}
@@ -56,7 +78,7 @@ const ContactForm = () => {
 											value={value}
 											ref_={ref}
 											className={
-												"!border-black px-4 placeholder:text-[#6F6C90]"
+												"border-black px-4 placeholder:text-[#6F6C90]"
 											}
 										/>
 									)}
@@ -65,10 +87,10 @@ const ContactForm = () => {
 								<Controller
 									control={control}
 									name="lastName"
-									// rules={{ validate: validators.validateEmail }}
+									rules={{ validate: validators.validateString }}
 									render={({ field: { onChange, value, ref } }) => (
 										<Input
-											placeholder={"lastName"}
+											placeholder={"Last name"}
 											onChange={onChange}
 											hasError={!!errors.lastName}
 											value={value}
@@ -84,7 +106,7 @@ const ContactForm = () => {
 								<Controller
 									control={control}
 									name="email"
-									// rules={{ validate: validators.validateEmail }}
+									rules={{ validate: validators.validateEmail }}
 									render={({ field: { onChange, value, ref } }) => (
 										<Input
 											placeholder={"Email"}
@@ -106,14 +128,14 @@ const ContactForm = () => {
                             </span> */}
 								<Controller
 									control={control}
-									name="reason"
+									name="supportRequest"
 									rules={{ required: true, validate: (v) => !!v.value }}
 									render={({ field: { ref, ...rest } }) => (
 										<Select
 											placeholder="General enquiry"
 											className={" !px-4  placeholder:text-[#121212]"}
 											options={reason}
-											hasError={!!errors?.reason}
+											hasError={!!errors?.supportRequest}
 											ref_={ref}
 											{...rest}
 										/>
@@ -125,7 +147,7 @@ const ContactForm = () => {
 								<Controller
 									control={control}
 									name="message"
-									// rules={{ validate: validators.validateEmail }}
+									rules={{ validate: validators.validateString }}
 									render={({ field: { onChange, value, ref } }) => (
 										<Input
 											placeholder={"Your Message"}
@@ -141,6 +163,7 @@ const ContactForm = () => {
 									)}
 								/>
 							</div>
+							<Button type="submit" text="Submit" loading={isLoading} />
 						</div>
 					</form>
 				</div>

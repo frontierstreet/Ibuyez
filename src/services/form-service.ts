@@ -18,6 +18,16 @@ class FormService {
 	saveForm(submissionId: string, email: string) {
 		return baseAxios.post(`/submissions/${submissionId}/save`, { email })
 	}
+
+	contactForm(value: {
+		email: string
+		firstName: string
+		lastName: string
+		supportRequest: string
+		message: string
+	}) {
+		return baseAxios.post("/contact", value)
+	}
 }
 
 const formService = new FormService()

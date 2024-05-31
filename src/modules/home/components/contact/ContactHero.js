@@ -13,7 +13,9 @@ const ContactHero = () => {
 					<div className="z-10 flex flex-wrap gap-4 mt-4">
 						<Button text="support@ibuyez.com" />
 						<Button text="317-812-3417" />
-						<Button text="Fill out contact form" />
+						<a href="#contact-form" title="Fill out contact form">
+							<Button text="Fill out contact form" />
+						</a>
 					</div>
 				</div>
 			</div>
