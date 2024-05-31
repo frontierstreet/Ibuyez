@@ -1,10 +1,12 @@
 import { Landing, HowWeBuy, About, Contact } from "./modules/home/pages"
 import CONSTANTS from "./modules/common/utils/Constant"
-import { RouterProvider, createBrowserRouter } from "react-router-dom"
+import { useLocation, useRoutes } from "react-router-dom"
 import { formRoute } from "modules/form/helpers"
 import { FormSteps } from "types/form"
 import FormPage from "modules/form/components/FormPage"
 import { formMaker } from "modules/form/constants/constants"
+import { AnimatePresence } from "framer-motion"
+import React from "react"
 
 const { routes } = CONSTANTS
 
@@ -13,15 +15,22 @@ const formRoutes = Object.keys(FormSteps).map((key) => ({
 	element: <FormPage {...formMaker[FormSteps[key]]} />
 }))
 
-const router = createBrowserRouter([
-	{ path: routes.home, Component: Landing },
-	{ path: routes.howWeBuy, Component: HowWeBuy },
-	{ path: routes.about, Component: About },
-	{ path: routes.contact, Component: Contact },
-	...formRoutes
-])
-
 const Router = () => {
-	return <RouterProvider router={router} />
+	const element = useRoutes([
+		{ path: routes.home, Component: Landing },
+		{ path: routes.howWeBuy, Component: HowWeBuy },
+		{ path: routes.about, Component: About },
+		{ path: routes.contact, Component: Contact },
+		...formRoutes
+	])
+	const location = useLocation()
+
+	if (!element) return null
+
+	return (
+		<AnimatePresence mode="wait">
+			{React.cloneElement(element, { key: location.pathname })}
+		</AnimatePresence>
+	)
 }
 export default Router

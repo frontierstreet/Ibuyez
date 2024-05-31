@@ -6,6 +6,7 @@ import FormFooter from "./FormFooter"
 import { useForm } from "react-hook-form"
 import FormInputRenderer from "./FormInputRenderer"
 import useCustomForm from "../hooks/useCustomForm"
+import { motion } from "framer-motion"
 
 const FormLeftHandSide = ({
 	header,
@@ -56,18 +57,24 @@ const FormPage = ({
 		<div className="px-5 lg:px-[64px] bg-white no-scrollbar">
 			<MaxWidthItem>
 				<TopBanner onSave={onSave} />
-				<div className="min-h-[calc(100vh_-_80px)] pb-[120px] flex flex-col space-y-5 1020:flex-row 1020:space-y-0 1020:space-x-10">
-					<div className="lg:flex-1 lg:flex-shrink-0 pt-5">
-						<FormLeftHandSide
-							header={header}
-							description={description}
-							extraLeftHandSideElement={extraLeftHandSideElement}
-						/>
+				<motion.div
+					className="w-full"
+					initial={{ opacity: 0, y: 30 }}
+					animate={{ opacity: 1, y: 0, transition: { duration: 0.5 } }}
+					exit={{ opacity: 0, y: 30, transition: { duration: 0.5 } }}>
+					<div className="min-h-[calc(100vh_-_80px)] pb-[120px] flex flex-col space-y-5 1020:flex-row 1020:space-y-0 1020:space-x-10">
+						<div className="lg:flex-1 lg:flex-shrink-0 pt-5">
+							<FormLeftHandSide
+								header={header}
+								description={description}
+								extraLeftHandSideElement={extraLeftHandSideElement}
+							/>
+						</div>
+						<div className="lg:flex-1 lg:flex-shrink-0 pt-5">
+							<FormInputRenderer control={control} items={items} errors={errors} />
+						</div>
 					</div>
-					<div className="lg:flex-1 lg:flex-shrink-0 pt-5">
-						<FormInputRenderer control={control} items={items} errors={errors} />
-					</div>
-				</div>
+				</motion.div>
 			</MaxWidthItem>
 			<FormFooter step={step} loading={submitting} onNext={handleSubmit(onSubmit)} />
 		</div>
