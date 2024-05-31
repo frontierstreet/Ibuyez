@@ -1,15 +1,15 @@
-import { useAuth } from 'modules/common/hooks'
-import { Login } from 'modules/user/pages'
-import React from 'react'
+import { useAuth } from "modules/common/hooks"
+import { Login } from "modules/user/pages"
+import React from "react"
 
 const RequiresLogIn = ({ children }) => {
-    const { userInfo, authInfo } = useAuth()
+	const { userInfo, authInfo } = useAuth()
 
-    if (!authInfo && !userInfo) {
-        return <Login />
-    }
+	if (!authInfo && !userInfo) {
+		return <Login />
+	}
 
-    return children
+	return children
 }
 
 export default RequiresLogIn

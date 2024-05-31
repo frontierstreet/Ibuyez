@@ -1,10 +1,10 @@
-import React from "react";
-import { ReactComponent as Logo } from "../../assets/icons/logo.svg";
-import { Link } from "react-router-dom";
-import CONSTANTS from "../../utils/Constant";
+import React from "react"
+import { ReactComponent as Logo } from "../../assets/icons/logo.svg"
+import { Link } from "react-router-dom"
+import CONSTANTS from "../../utils/Constant"
 // import { useAuth } from "../../hooks";
 
-const { routes } = CONSTANTS;
+const { routes } = CONSTANTS
 
 const Footer = () => {
 	// const { userInfo } = useAuth();
@@ -20,7 +20,9 @@ const Footer = () => {
 					<ul className="flex space-y-[18px] flex-col w-[177.714px] 630:w-auto">
 						<li>
 							<Link to={routes.sellYourHouse}>
-								<span className="text-white text-base leading-6">Sell Us your Home</span>
+								<span className="text-white text-base leading-6">
+									Sell Us your Home
+								</span>
 							</Link>
 						</li>
 						<li>
@@ -41,25 +43,33 @@ const Footer = () => {
 						</li>
 						<li>
 							<Link to="https://forms.gle/KuBVH2GwpX3UMZ389" target="_blank">
-								<span className="text-white text-base leading-6">Creative Finance</span>
+								<span className="text-white text-base leading-6">
+									Creative Finance
+								</span>
 							</Link>
 						</li>
 						<li>
 							<Link to="https://forms.gle/Jbn48VbwToBHMm1k7" target="_blank">
-								<span className="text-white text-base leading-6">Deal Analyzer</span>
+								<span className="text-white text-base leading-6">
+									Deal Analyzer
+								</span>
 							</Link>
 						</li>
 
 						<li>
 							<Link to="/rtow-lease-form" target="_blank">
-								<span className="text-white text-base leading-6">Rtow W/Lease form</span>
+								<span className="text-white text-base leading-6">
+									Rtow W/Lease form
+								</span>
 							</Link>
 						</li>
 						<li>
-						     <Link to={routes.rtoFormSubmissions}>
-									<div>
-										<span className="text-white text-base leading-6">RTO W/Lease Submission</span>
-									</div>
+							<Link to={routes.rtoFormSubmissions}>
+								<div>
+									<span className="text-white text-base leading-6">
+										RTO W/Lease Submission
+									</span>
+								</div>
 							</Link>
 						</li>
 						{/* <li><span className='text-white text-base leading-6'>Property Preference</span></li> */}
@@ -67,12 +77,18 @@ const Footer = () => {
 					<ul className="hidden 630:flex space-y-[18px] flex-col">
 						<Link to={routes.privacy}>
 							<li>
-								<span className="text-white text-base leading-6"> Privacy Policy</span>
+								<span className="text-white text-base leading-6">
+									{" "}
+									Privacy Policy
+								</span>
 							</li>
 						</Link>
 						<Link to={routes.terms}>
 							<li>
-								<span className="text-white text-base leading-6"> Terms of Service</span>
+								<span className="text-white text-base leading-6">
+									{" "}
+									Terms of Service
+								</span>
 							</li>
 						</Link>
 						<Link to={routes.contact}>
@@ -87,12 +103,18 @@ const Footer = () => {
 					<ul className="flex space-y-[18px] flex-col w-[177.714px]">
 						<Link to={routes.privacy}>
 							<li>
-								<span className="text-white text-base leading-6"> Privacy Policy</span>
+								<span className="text-white text-base leading-6">
+									{" "}
+									Privacy Policy
+								</span>
 							</li>
 						</Link>
 						<Link to={routes.terms}>
 							<li>
-								<span className="text-white text-base leading-6"> Terms of Service</span>
+								<span className="text-white text-base leading-6">
+									{" "}
+									Terms of Service
+								</span>
 							</li>
 						</Link>
 						<Link to={routes.contact}>
@@ -102,14 +124,14 @@ const Footer = () => {
 						</Link>
 					</ul>
 				</div>
-				< div className="mt-[75px] flex items-center justify-center">
+				<div className="mt-[75px] flex items-center justify-center">
 					<p className="text-white text-sm leading-4 text-center">
 						2024 IbuyEz.com. | All Rights Reserved.
 					</p>
 				</div>
 			</div>
-		 </div>
-	);
-};
+		</div>
+	)
+}
 
-export default Footer;
+export default Footer
