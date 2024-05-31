@@ -6,7 +6,7 @@ import { FormSteps } from "types/form"
 import FormPage from "modules/form/components/FormPage"
 import { formMaker } from "modules/form/constants/constants"
 import { AnimatePresence } from "framer-motion"
-import React from "react"
+import React, { useEffect } from "react"
 
 const { routes } = CONSTANTS
 
@@ -24,6 +24,10 @@ const Router = () => {
 		...formRoutes
 	])
 	const location = useLocation()
+
+	useEffect(() => {
+		window.scroll(0, 0)
+	}, [location.pathname])
 
 	if (!element) return null
 
