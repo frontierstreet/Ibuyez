@@ -156,8 +156,10 @@ const useCustomForm = (step: FormSteps) => {
 				setSubmitting(false)
 				if (step !== FormSteps.completion) {
 					navigate(formRoute(response.data.step, data._id))
+					setSubmitting(false)
 				} else {
 					onCompletion()
+					setSubmitting(false)
 				}
 			} catch (e: any) {
 				if (!e.response.data.error) {
