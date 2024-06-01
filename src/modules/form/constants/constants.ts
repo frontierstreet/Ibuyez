@@ -354,7 +354,8 @@ export const formMaker: Record<FormSteps, FormPageProps> = {
 			{
 				type: "input",
 				fieldName: fieldNames.email,
-				autoFocus: true
+				autoFocus: true,
+				rules: { validate: validators.validateEmail }
 			}
 		]
 	}
