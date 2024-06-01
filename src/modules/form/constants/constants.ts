@@ -76,8 +76,7 @@ export const formMaker: Record<FormSteps, FormPageProps> = {
 			{
 				type: "input",
 				label: "Street address",
-				fieldName: fieldNames.streetAddress,
-				rules: { validate: validators.validateString }
+				fieldName: fieldNames.streetAddress
 			},
 			{
 				type: "input",
@@ -87,20 +86,17 @@ export const formMaker: Record<FormSteps, FormPageProps> = {
 			{
 				type: "input",
 				label: "City",
-				rules: { validate: validators.validateString },
 				fieldName: fieldNames.city
 			},
 			{
 				type: "select",
 				label: "State",
-				rules: { validate: validators.validateRequiredOption },
 				fieldName: fieldNames.state,
 				options: americanStates
 			},
 			{
 				type: "input",
 				label: "Zip Code",
-				rules: { validate: validators.validateString },
 				fieldName: fieldNames.zipCode
 			}
 		]
@@ -114,7 +110,6 @@ export const formMaker: Record<FormSteps, FormPageProps> = {
 			{
 				type: "list",
 				options: homeDescriptionOptions,
-				rules: { validate: validators.validateString },
 				fieldName: fieldNames.homeDescription
 			}
 		]
@@ -129,24 +124,21 @@ export const formMaker: Record<FormSteps, FormPageProps> = {
 				label: "Bedrooms",
 				description: "Must have a door, closet, and window.",
 				fieldName: fieldNames.bedroomCount,
-				options: getNumbers(1, 12),
-				rules: { validate: validators.validateRequiredOption }
+				options: getNumbers(1, 12)
 			},
 			{
 				type: "select",
 				label: "Full bathrooms",
 				description: "Must have a toilet and a shower/tub.",
 				fieldName: fieldNames.bathroomCount,
-				options: getNumbers(1, 10),
-				rules: { validate: validators.validateRequiredOption }
+				options: getNumbers(1, 10)
 			},
 			{
 				type: "select",
 				label: "Partial bathrooms",
 				description: "Must have a toilet and sink.",
 				fieldName: fieldNames.partialBathroomCount,
-				options: getNumbers(1, 10),
-				rules: { validate: validators.validateRequiredOption }
+				options: getNumbers(1, 10)
 			},
 			{
 				type: "numeric-input",
@@ -154,46 +146,40 @@ export const formMaker: Record<FormSteps, FormPageProps> = {
 				label: "Square footage (above ground)",
 				description:
 					"Don't include basements, non-permitted additions, or non-heated square footage.",
-				fieldName: fieldNames.squareFootageAboveGround,
-				rules: { validate: validators.validateRequiredNumber }
+				fieldName: fieldNames.squareFootageAboveGround
 			},
 			{
 				type: "numeric-input",
 				inputSuffix: " ft²",
 				label: "Lot square footage",
 				description: "This is the length x width of your lot (in feet).",
-				fieldName: fieldNames.lotSquareFootage,
-				rules: { validate: validators.validateRequiredNumber }
+				fieldName: fieldNames.lotSquareFootage
 			},
 			{
 				type: "select",
 				label: "Floors (above ground)",
 				description: "Don't include the basement.",
 				fieldName: fieldNames.floorsAboveGround,
-				options: getNumbers(1, 3),
-				rules: { validate: validators.validateRequiredOption }
+				options: getNumbers(1, 3)
 			},
 			{
 				type: "select",
 				label: "Basement",
 				description: "Floors that are completely below ground.",
 				fieldName: fieldNames.floorsBelowGround,
-				options: yesNoOptions,
-				rules: { validate: validators.validateRequiredOption }
+				options: yesNoOptions
 			},
 			{
 				type: "select",
 				label: "Year built",
 				fieldName: fieldNames.yearBuilt,
-				options: getNumbers(1874, new Date().getFullYear()),
-				rules: { validate: validators.validateRequiredOption }
+				options: getNumbers(1874, new Date().getFullYear())
 			},
 			{
 				type: "select",
 				label: "Pool",
 				fieldName: fieldNames.pool,
-				options: poolOptions,
-				rules: { validate: validators.validateRequiredOption }
+				options: poolOptions
 			}
 			// carport spaces
 		]
@@ -206,7 +192,6 @@ export const formMaker: Record<FormSteps, FormPageProps> = {
 			{
 				type: "list",
 				options: homeOwnerShipOptions,
-				rules: { validate: validators.validateString },
 				fieldName: fieldNames.homeownership
 			}
 		]
@@ -218,7 +203,6 @@ export const formMaker: Record<FormSteps, FormPageProps> = {
 			{
 				type: "list",
 				options: kitchenCounterTopOptions,
-				rules: { validate: validators.validateString },
 				fieldName: fieldNames.kitchenCounterTops
 			}
 		],
@@ -232,7 +216,6 @@ export const formMaker: Record<FormSteps, FormPageProps> = {
 			{
 				type: "list",
 				options: kitchenApplicanceDescriptions,
-				rules: { validate: validators.validateString },
 				fieldName: fieldNames.kitchenApplicanceDescriptions
 			}
 		]
@@ -245,7 +228,6 @@ export const formMaker: Record<FormSteps, FormPageProps> = {
 			{
 				type: "image-select",
 				options: kitchenDescriptionOptions,
-				rules: { validate: validators.validateString },
 				fieldName: fieldNames.kitchenDescription
 			}
 		]
@@ -258,7 +240,6 @@ export const formMaker: Record<FormSteps, FormPageProps> = {
 			{
 				type: "image-select",
 				options: bathroomDescriptionOptions,
-				rules: { validate: validators.validateString },
 				fieldName: fieldNames.bathroomDescription
 			}
 		]
@@ -271,7 +252,6 @@ export const formMaker: Record<FormSteps, FormPageProps> = {
 			{
 				type: "image-select",
 				options: livingRoomDescriptionOptions,
-				rules: { validate: validators.validateString },
 				fieldName: fieldNames.livingRoomDescription
 			}
 		]
@@ -284,7 +264,6 @@ export const formMaker: Record<FormSteps, FormPageProps> = {
 			{
 				type: "image-select",
 				options: homeExteriorDescriptionOptions,
-				rules: { validate: validators.validateString },
 				fieldName: fieldNames.homeExteriorDescription
 			}
 		]
@@ -298,7 +277,6 @@ export const formMaker: Record<FormSteps, FormPageProps> = {
 			{
 				type: "list",
 				options: yesNoOptions,
-				rules: { validate: validators.validateString },
 				fieldName: fieldNames.isHomeHomeOwnersAssociation
 			}
 		]
@@ -312,7 +290,6 @@ export const formMaker: Record<FormSteps, FormPageProps> = {
 			{
 				type: "list",
 				options: homeCommunityTypeOptions,
-				rules: { validate: validators.validateString },
 				fieldName: fieldNames.homeCommunityGroup,
 				isMultiple: true
 			}
@@ -328,8 +305,7 @@ export const formMaker: Record<FormSteps, FormPageProps> = {
 				type: "list",
 				options: extraInformationOptions,
 				fieldName: fieldNames.miscellaneousHomeFeatures,
-				isMultiple: true,
-				rules: { validate: (v) => v.length > 0 }
+				isMultiple: true
 			}
 		]
 	},
@@ -341,8 +317,7 @@ export const formMaker: Record<FormSteps, FormPageProps> = {
 			{
 				type: "list",
 				options: timeToSellHomeOptions,
-				fieldName: fieldNames.sellTime,
-				rules: { validate: validators.validateString }
+				fieldName: fieldNames.sellTime
 			}
 		]
 	},
@@ -354,8 +329,7 @@ export const formMaker: Record<FormSteps, FormPageProps> = {
 			{
 				type: "list",
 				options: yesNoOptions,
-				fieldName: fieldNames.homeBuilder,
-				rules: { validate: validators.validateString }
+				fieldName: fieldNames.homeBuilder
 			}
 		]
 	},
@@ -367,7 +341,6 @@ export const formMaker: Record<FormSteps, FormPageProps> = {
 			{
 				type: "select",
 				options: homeBuilderOptions,
-				rules: { validate: validators.validateString },
 				fieldName: fieldNames.homeBuilderSelect
 			}
 		]
@@ -380,7 +353,6 @@ export const formMaker: Record<FormSteps, FormPageProps> = {
 		items: [
 			{
 				type: "input",
-				rules: { validate: validators.validateEmail },
 				fieldName: fieldNames.email,
 				autoFocus: true
 			}
