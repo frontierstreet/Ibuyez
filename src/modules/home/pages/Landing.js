@@ -15,10 +15,10 @@ const Landing = () => {
 	return (
 		<NavigationWrapper>
 			<Hero />
-			<Discover />
+			{/* <Discover /> */}
 			<Sell />
-			<About />
 			<Explore />
+			<About />
 			<HowWeWork />
 			<Testimonials />
 			<Started />

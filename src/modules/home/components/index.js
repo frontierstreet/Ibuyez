@@ -13,6 +13,7 @@ import About from "./landing/About"
 import Discover from "./landing/Discover"
 import Explore from "./landing/Explore"
 import Hero from "./landing/Hero"
+import HeroForm from "./landing/HeroForm"
 import HowWeWork from "./landing/HowWeWork"
 import Sell from "./landing/Sell"
 import Started from "./landing/Started"
@@ -36,5 +37,6 @@ export {
 	Why,
 	Ultimate,
 	ContactHero,
+    HeroForm,
 	ContactForm
 }

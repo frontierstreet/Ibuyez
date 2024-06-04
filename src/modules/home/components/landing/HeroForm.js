@@ -47,7 +47,7 @@ const HeroForm = () => {
 					e.preventDefault()
 					onCreateFormEntry()
 				}}>
-				<div className="flex  mt-5 868:mt-10 gap-4  md:w-[80%]  868:items-center justify-between border px-2 py-2 md:px-5 md:py-5   rounded-[20px] bg-white ">
+				<div className="flex  mt-5 868:mt-10 gap-4 h-[70px]  max-w-[500px] md:w-[100%]  items-center justify-between border px-2 py-2 md:px-5 md:py-5   rounded-[20px] bg-white ">
 					<div className=" flex-[1.4] relative">
 						{/* <h3>Property Address</h3> */}
 						<GooglePlacesAutocomplete
@@ -72,7 +72,7 @@ const HeroForm = () => {
 								classNames: {
 									container: () => ` `,
 									control: (state) =>
-										"!border-none !outline-none w-[100%] !flex-[1.5] md:w-[300px]   outline-none border-none text-[14px] md:text-[16px] text-[#25253C] !placeholder:text-[#121212]"
+										"!border-none !outline-none w-[60vw]  !flex-[1.5] md:w-[300px]   outline-none border-none text-[14px] md:text-[16px] text-[#25253C] !placeholder:text-[#121212]"
 								}
 							}}
 						/>

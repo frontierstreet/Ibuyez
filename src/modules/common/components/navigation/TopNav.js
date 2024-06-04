@@ -17,7 +17,7 @@ export const getTopNavLinks = (navigate) => [
 	{ text: "How We Buy", route: routes.howWeBuy },
 	{ text: "About", route: routes.about },
 	{ text: "Contact", route: routes.contact },
-	{ text: "Browse Homes", route: routes.homes }
+	// { text: "Browse Homes", route: routes.homes }
 ]
 
 export const TopNavMenu = ({ isVisible, onClose, goToLogin }) => {
@@ -32,7 +32,7 @@ export const TopNavMenu = ({ isVisible, onClose, goToLogin }) => {
 	return (
 		<div
 			className={clsx(
-				"fixed top-0 left-0 h-screen z-[40] flex flex-col space-y-[68px] pb-[100px] overflow-y-auto w-screen bg-white transition-all",
+				"fixed top-0 left-0 h-screen z-[40] flex flex-col space-y-[68px] pb-[100px] overflow-y-auto w-screen bg-blue transition-all",
 				{ "!pointer-events-none !opacity-0": !isVisible }
 			)}>
 			<Exit className="top-[34px] right-[30px]  absolute" onClick={() => onClose()} />
@@ -47,7 +47,7 @@ export const TopNavMenu = ({ isVisible, onClose, goToLogin }) => {
 						{link.handler ? (
 							<button
 								onClick={link.handler}
-								className="text-base leading-[18px] text-black font-light text-center">
+								className="text-base leading-[18px] text-black font-semibold text-center">
 								{link.text}
 							</button>
 						) : link.route ? (
@@ -55,16 +55,16 @@ export const TopNavMenu = ({ isVisible, onClose, goToLogin }) => {
 								to={link.route}
 								className={({ isActive }) =>
 									clsx(
-										"text-base leading-[18px] text-black font-light text-center",
+										"text-base leading-[18px] text-black font-semibold text-center",
 										{
-											"!text-FEDF18": isActive
+											"!text-blue": isActive
 										}
 									)
 								}>
 								{link.text}
 							</NavLink>
 						) : (
-							<span className="text-base leading-[18px] text-black font-light text-center">
+							<span className="text-base leading-[18px] text-black font-semibold text-center">
 								{link.text}
 							</span>
 						)}
@@ -113,9 +113,9 @@ const TopNav = () => {
 		<div>
 			<div
 				className={clsx(
-					"fixed top-[22.07px] lg:top-[49px] flex items-center justify-between h-[40.3px] lg:h-[68px] w-full px-5 lg:pl-[33px] lg:pr-[11px] z-[30] transition-all duration-300 lg:bg-white lg:w-[calc(100%_-_120px)] ml-[50%] translate-x-[-50%] lg:rounded-10 max-w-[1320px] xl:max-w-[100%] ",
+					"fixed top-[0] lg:top-[0px] flex items-center justify-between bg-white h-[80.3px] lg:h-[100px] w-full px-5 lg:pl-[60px] lg:pr-[40px] z-[40] transition-all duration-300  ml-[50%] translate-x-[-50%]  max-w-[1420px] xl:max-w-[100%] ",
 					{
-						"opacity-0 pointer-events-none": isScrolled
+						" bg-white text-black pointer-events-none": isScrolled
 					}
 				)}>
 				<Link to={routes.home}>
@@ -131,7 +131,7 @@ const TopNav = () => {
 									{link.handler ? (
 										<button
 											onClick={link.handler}
-											className="text-base leading-[18px] text-black font-light flex items-center justify-center h-full">
+											className="text-base leading-[18px] text-black font-semibold flex items-center justify-center h-full">
 											{link.text}
 										</button>
 									) : link.route ? (
@@ -139,16 +139,16 @@ const TopNav = () => {
 											to={link.route}
 											className={({ isActive }) =>
 												clsx(
-													"text-base leading-[18px] text-black font-light flex items-center justify-center h-full",
+													"text-base leading-[18px] text-black font-semibold flex items-center justify-center h-full",
 													{
-														"!text-FEDF18": isActive
+														"!text-blue": isActive
 													}
 												)
 											}>
 											{link.text}
 										</NavLink>
 									) : (
-										<span className="text-base leading-[18px] text-black font-light flex items-center justify-center h-full">
+										<span className="text-base leading-[18px] text-black font-semibold flex items-center justify-center h-full">
 											{link.text}
 										</span>
 									)}

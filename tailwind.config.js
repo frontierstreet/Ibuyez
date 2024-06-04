@@ -15,6 +15,7 @@ module.exports = {
 				border: "#ccc",
 				primary: "#3A0CA3",
 				blue: "#3A0CA3",
+				yellow:"#fddf14",
 				D50100: "#D50100",
 				FEDF18: "#FEDF18",
 				_14142B: "#14142B",
