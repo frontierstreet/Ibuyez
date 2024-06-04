@@ -1,6 +1,7 @@
 import React from "react"
 import houseImg from "../../assets/images/sell-img.png"
 import { ReactComponent as Arrow } from "../../assets/icons/arrow-angle.svg"
+import FadeIn from "./FadeIn"
 
 const List = [
 	"✅ More Cash In Your Pocket",
@@ -16,6 +17,8 @@ const List = [
 
 const Sell = () => {
 	return (
+		<FadeIn>
+
 		<div className="md:px-5 px-4 mt-[50px] 950:mt-[100px] xl:max-w-[1330px] xl:mx-auto">
 			<div>
 				<div className="flex flex-col md:flex-row md:items-center gap-4 md:gap-10 mb-5">
@@ -49,6 +52,8 @@ const Sell = () => {
 				</div>
 			</div>
 		</div>
+		</FadeIn>
+
 	)
 }
 

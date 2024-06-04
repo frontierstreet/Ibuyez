@@ -17,7 +17,7 @@ const Hero = () => {
 	}, [])
 
 	return (
-		<div className=" 950:px-10 px-4 md:px-0 md:pl-4 xl:min-h-[100vh] bg-blue background-noise   868:max-w-[100%] 868:pl-5 mx-auto">
+		 <div className=" 950:px-10 px-4 md:px-0 md:pl-4 xl:min-h-[100vh] bg-blue background-noise   868:max-w-[100%] 868:pl-5 mx-auto">
 			 {/* <img src={Noise} className="absolute top-0 left-0  w-full h-full" alt="Noise texture"/> */}
 			<BlockingLoader solid loading={loading} />
 			<div className="flex flex-col justify-between items-center  mt-[50px] pt-[120px] py-10  950:pt-[200px]  950:mt-0 868:flex-row gap-8  ">

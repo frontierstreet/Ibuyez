@@ -1,10 +1,11 @@
 import React from "react"
 import AboutImg from "../../assets/images/about-img.png"
 import Stat from "./Stat"
+import FadeIn from "./FadeIn"
 
 const About = () => {
 	return (
-		<>
+		<FadeIn>
 			<div className="flex flex-col items-center mt-[50px]  md:mt-[150px] relative">
 				<img src={AboutImg} className=" pointer-events-none" alt="videobackground" />
 				<div className="bg-blue px-4 py-10 436:px-10 950:w-[860px] 950:px-10 950:py-10 md:absolute 950:top-40 950:right-20">
@@ -20,8 +21,8 @@ const About = () => {
 					</p>
 				</div>
 			</div>
-			<Stat />
-		</>
+			{/* <Stat /> */}
+		</FadeIn>
 	)
 }
 

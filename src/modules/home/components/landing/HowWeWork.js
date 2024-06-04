@@ -1,6 +1,6 @@
 import React from "react";
 import Step1Img from "../../assets/images/step1-img.png";
-
+import FadeIn from "./FadeIn";
 const steps = [
   {
     id: 1,
@@ -47,6 +47,7 @@ const steps = [
 
 const HowWeWork = () => {
   return (
+	<FadeIn>
     <div className="px-4 md:px-10 mt-10 950:mt-[100px] xl:max-w-[1330px] xl:mx-auto">
       <div className="flex flex-col md:flex-row items-center gap-5 md:gap-10 mb-5">
         <h3 className="md:text-[55px] flex-1 md:leading-[75px] 950:text-[55px] 950:leading-[96px] text-[41.04px] leading-[49.24px] text-black font-medium">
@@ -96,6 +97,7 @@ const HowWeWork = () => {
         </div>
       ))}
     </div>
+	</FadeIn>
   );
 };
 

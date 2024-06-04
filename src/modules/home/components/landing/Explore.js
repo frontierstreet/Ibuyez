@@ -3,7 +3,7 @@ import ExploreImg from "../../assets/images/explore-img.png"
 import { Button } from "../../../common/components"
 import { Link } from 'react-router-dom';
 import { situations } from "./situations";
-
+import FadeIn from "./FadeIn";
 const Card = ({ icon, header, content, link }) => (
 	<div className="bg-white z-30 shadow-lg rounded-[20px] p-6 w-80 text-center">
 	  {/* <img src={icon} alt="icon" className="mx-auto w-12 h-12 mb-4" /> */}
@@ -33,6 +33,7 @@ const Card = ({ icon, header, content, link }) => (
 
 const Explore = () => {
 	return (
+		<FadeIn>
 		<div className=" bg-[#f9f9fb] mt-[50px] py-10 950:mt-[150px]  950:py-[100px]">
 			<div className="">
 				<h3 className="md:text-[40px] md:leading-[75px] text-center    950:text-[70px] 950:leading-[96px] text-[41.04px] leading-[49.24px] text-black font-normal">
@@ -45,6 +46,7 @@ const Explore = () => {
 
 	      <CardList situations={situations }/>
 		</div>
+		</FadeIn>
 	)
 }
 
