@@ -19,65 +19,33 @@ const Footer = () => {
 					</div>
 					<ul className="flex space-y-[18px] flex-col w-[177.714px] 630:w-auto">
 						<li>
-							<Link to={routes.sellYourHouse}>
-								<span className="text-white text-base leading-6">
+							<Link to={routes.howWeBuy}>
+								<span className="text-black text-base leading-6">
 									Sell Us your Home
 								</span>
 							</Link>
 						</li>
 						<li>
-							<Link to={routes.spyForUs}>
-								<span className="text-white text-base leading-6">Spy for Us</span>
-							</Link>
-						</li>
-
-						<li>
-							<Link to={routes.propertiesList}>
-								<span className="text-white text-base leading-6">PropertyList</span>
-							</Link>
-						</li>
-						<li>
-							<Link to={routes.blog}>
-								<span className="text-white text-base leading-6">Blog</span>
-							</Link>
-						</li>
-						<li>
-							<Link to="https://forms.gle/KuBVH2GwpX3UMZ389" target="_blank">
-								<span className="text-white text-base leading-6">
-									Creative Finance
+							<Link to={routes.about}>
+								<span className="text-black text-base leading-6">
+									About
 								</span>
 							</Link>
 						</li>
 						<li>
-							<Link to="https://forms.gle/Jbn48VbwToBHMm1k7" target="_blank">
-								<span className="text-white text-base leading-6">
-									Deal Analyzer
+							<Link to={routes.contact}>
+								<span className="text-black text-base leading-6">
+									Contact
 								</span>
 							</Link>
 						</li>
-
-						<li>
-							<Link to="/rtow-lease-form" target="_blank">
-								<span className="text-white text-base leading-6">
-									Rtow W/Lease form
-								</span>
-							</Link>
-						</li>
-						<li>
-							<Link to={routes.rtoFormSubmissions}>
-								<div>
-									<span className="text-white text-base leading-6">
-										RTO W/Lease Submission
-									</span>
-								</div>
-							</Link>
-						</li>
-						{/* <li><span className='text-white text-base leading-6'>Property Preference</span></li> */}
+						
+						{/* <li><span className='text-black text-base leading-6'>Property Preference</span></li> */}
 					</ul>
 					<ul className="hidden 630:flex space-y-[18px] flex-col">
 						<Link to={routes.privacy}>
 							<li>
-								<span className="text-white text-base leading-6">
+								<span className="text-black text-base leading-6">
 									{" "}
 									Privacy Policy
 								</span>
@@ -85,17 +53,13 @@ const Footer = () => {
 						</Link>
 						<Link to={routes.terms}>
 							<li>
-								<span className="text-white text-base leading-6">
+								<span className="text-black text-base leading-6">
 									{" "}
 									Terms of Service
 								</span>
 							</li>
 						</Link>
-						<Link to={routes.contact}>
-							<li>
-								<span className="text-white text-base leading-6"> Contact Us</span>
-							</li>
-						</Link>
+						
 					</ul>
 				</div>
 				<div className="flex items-center justify-between mt-[135px] 630:hidden">
@@ -103,7 +67,7 @@ const Footer = () => {
 					<ul className="flex space-y-[18px] flex-col w-[177.714px]">
 						<Link to={routes.privacy}>
 							<li>
-								<span className="text-white text-base leading-6">
+								<span className="text-black text-base leading-6">
 									{" "}
 									Privacy Policy
 								</span>
@@ -111,7 +75,7 @@ const Footer = () => {
 						</Link>
 						<Link to={routes.terms}>
 							<li>
-								<span className="text-white text-base leading-6">
+								<span className="text-black text-base leading-6">
 									{" "}
 									Terms of Service
 								</span>
@@ -119,14 +83,15 @@ const Footer = () => {
 						</Link>
 						<Link to={routes.contact}>
 							<li>
-								<span className="text-white text-base leading-6"> Contact Us</span>
+								<span className="text-black text-base leading-6"> Contact Us</span>
 							</li>
 						</Link>
 					</ul>
 				</div>
 				<div className="mt-[75px] flex items-center justify-center">
-					<p className="text-white text-sm leading-4 text-center">
-						2024 IbuyEz.com. | All Rights Reserved.
+					<p className="text-black text-sm leading-4 text-center">
+						2024 IbuyEZ.com. | All Rights Reserved. <br/>
+						<span>One or more of the individuals with an ownership interest in iBuyEZ.com hold(s) a real estate license in the State of Indiana. By using this site you are attesting that you are not represented by or in an agency relationship with any of the licensees affiliated with iBuyEZ.com.</span>
 					</p>
 				</div>
 			</div>

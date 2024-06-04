@@ -2,8 +2,8 @@ import React, { useState, useEffect, useMemo } from "react"
 import clsx from "classnames"
 import { Link, NavLink, useNavigate } from "react-router-dom"
 import { ReactComponent as Hamburger } from "../../assets/icons/hamburger-black.svg"
-import { ReactComponent as Logo } from "../../assets/icons/logo.svg"
-import { ReactComponent as LargeLogo } from "../../assets/icons/logo.svg"
+import { ReactComponent as Logo } from "../../assets/icons/logo1.svg"
+import { ReactComponent as LargeLogo } from "../../assets/icons/logo1.svg"
 import { ReactComponent as Exit } from "../../assets/icons/exit-black.svg"
 import Button from "../general/Button"
 // import { changeBodyScrollStatusTo, removeFromLS, scrollToFaq } from 'modules/common/utils/functions'
@@ -32,7 +32,7 @@ export const TopNavMenu = ({ isVisible, onClose, goToLogin }) => {
 	return (
 		<div
 			className={clsx(
-				"fixed top-0 left-0 h-screen z-[40] flex flex-col space-y-[68px] pb-[100px] overflow-y-auto w-screen bg-blue transition-all",
+				"fixed top-0 left-0 h-screen z-[40]  flex flex-col space-y-[68px] pb-[100px] overflow-y-auto w-screen bg-blue text-black transition-all",
 				{ "!pointer-events-none !opacity-0": !isVisible }
 			)}>
 			<Exit className="top-[34px] right-[30px]  absolute" onClick={() => onClose()} />
@@ -57,7 +57,7 @@ export const TopNavMenu = ({ isVisible, onClose, goToLogin }) => {
 									clsx(
 										"text-base leading-[18px] text-black font-semibold text-center",
 										{
-											"!text-blue": isActive
+											"!text-yellow": isActive
 										}
 									)
 								}>
@@ -113,7 +113,7 @@ const TopNav = () => {
 		<div>
 			<div
 				className={clsx(
-					"fixed top-[0] lg:top-[0px] flex items-center justify-between bg-white h-[80.3px] lg:h-[100px] w-full px-5 lg:pl-[60px] lg:pr-[40px] z-[40] transition-all duration-300  ml-[50%] translate-x-[-50%]  max-w-[1420px] xl:max-w-[100%] ",
+					"fixed top-[0] lg:top-[0px] flex items-center justify-between bg-white h-[110.3px] lg:h-[120px] w-full px-5 lg:pl-[60px] lg:pr-[40px] z-[40] transition-all duration-300  ml-[50%] translate-x-[-50%]  max-w-[1420px] xl:max-w-[100%] ",
 					{
 						" bg-white text-black pointer-events-none": isScrolled
 					}

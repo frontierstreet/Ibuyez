@@ -32,7 +32,7 @@ const BlockingLoader = ({ loading = false, text, solid = false }) => {
 					fill="currentFill"
 				/>
 			</svg>
-			{text && <p className="font-bold text-center text-white">{text}...</p>}
+			{text && <p className="font-bold text-center text-black">{text}...</p>}
 		</div>
 	)
 }

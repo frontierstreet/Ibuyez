@@ -4,21 +4,21 @@ import { ReactComponent as Arrow } from "../../assets/icons/arrow-angle.svg"
 import FadeIn from "./FadeIn"
 
 const List = [
-	"✅ More Cash In Your Pocket",
-	"✅ Multiple Selling Options",
-	"✅ Simple Contracts ",
-	"✅ Customized To Your Situation",
-	"✅ Flexible Time Frames",
-	"✅ Stay In Your Home  ",
-	"✅ Help With Moving Expenses",
-	"✅ More EZ Stuff"
+	"More Cash In Your Pocket",
+	"Multiple Selling Options",
+	"Simple Contracts ",
+	"Customized To Your Situation",
+	"Flexible Time Frames",
+	"Stay In Your Home  ",
+	"Help With Moving Expenses",
+	"More EZ Stuff"
     
 ]
 
 const Sell = () => {
 	return (
 		<FadeIn>
-
+			
 		<div className="md:px-5 px-4 mt-[50px] 950:mt-[100px] xl:max-w-[1330px] xl:mx-auto">
 			<div>
 				<div className="flex flex-col md:flex-row md:items-center gap-4 md:gap-10 mb-5">
@@ -42,7 +42,7 @@ const Sell = () => {
 							<li className="flex items-center gap-10" key={index}>
 								<span
 									key={index}
-									className="text-white font-normal text-[16px] md:text-[20px]">
+									className="text-black font-normal text-[16px] md:text-[20px]">
 									{item}
 								</span>
 								{/* <Arrow/> */}
@@ -52,7 +52,7 @@ const Sell = () => {
 				</div>
 			</div>
 		</div>
-		</FadeIn>
+	</FadeIn>
 
 	)
 }

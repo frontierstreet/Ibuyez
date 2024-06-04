@@ -22,7 +22,7 @@ const ContactHero = () => {
 			<div className="flex-1">
 				<img
 					src={landingImg}
-					className="pointer-events-none h-[400px] w-[100vw] absolute top-0 left-0 868:h-[600px] 868:w-[100%] z-0"
+					className="pointer-events-none h-[400px] w-[100vw] absolute top-0 left-0 868:h-[500px] 868:w-[100%] z-0"
 					alt="Moving background"
 				/>
 			</div>

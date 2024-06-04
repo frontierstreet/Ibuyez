@@ -22,12 +22,11 @@ const Hero = () => {
 			<BlockingLoader solid loading={loading} />
 			<div className="flex flex-col justify-between items-center  mt-[50px] pt-[120px] py-10  950:pt-[200px]  950:mt-0 868:flex-row gap-8  ">
 				<div className="flex-1">
-					<h3 className="md:text-[60px] md:leading-[75px]    950:text-[60px] 950:leading-[70px] text-[40px] leading-[49.24px] text-white font-black">
-					    SELL YOUR <br/> HOME THE <span className="text-yellow">EZ </span> WAY
+					<h3 className="md:text-[60px] md:leading-[75px]    950:text-[60px] 950:leading-[70px] text-[40px] leading-[49.24px] text-black font-black">
+					    Sell Your <br/> Home The <span>EZ </span> Way
 					</h3>
-					<p className="text-[#f2f2f2] text-[16px] mt-4 leading-[28.03px] md:text-[18px] md:leading-[32px] 950:text-[25px] 950:leading-[38.4px]">
-						Search for a comfortable place to live with your new family and your child.
-						Increase the harmony of your family and wife to be at home
+					<p className="text-black text-[16px] mt-4 leading-[28.03px] md:text-[18px] md:leading-[32px] 950:text-[25px] 950:leading-[38.4px]">
+					Experience the Simplest Way to Sell Your Home Quickly and Efficiently with Our Expert Property Buying Services
 					</p>
 					<HeroForm />
 				</div>

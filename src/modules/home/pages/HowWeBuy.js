@@ -7,7 +7,7 @@ const HowWeBuy = () => {
 		<NavigationWrapper>
 			<Head />
 			<Selling />
-			<Process />
+			{/* <Process /> */}
 			<Offer />
 			<Cost />
 			<Started />

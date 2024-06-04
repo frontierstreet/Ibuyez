@@ -32,7 +32,7 @@ const Button = ({
 			onClick={onClick}
 			disabled={loading}>
 			<span
-				className={clsx("text-white font-bold text-base leading-[19.2px]", textClassNames, {
+				className={clsx("text-black font-bold text-base leading-[19.2px]", textClassNames, {
 					"opacity-0": loading
 				})}>
 				{text}

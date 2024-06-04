@@ -1,4 +1,5 @@
 import AboutHero from "./about/AboutHero"
+import WhatSetsUsApart from "./about/Apart"
 import Mission from "./about/Mission"
 import Ultimate from "./about/Ultimate"
 import Why from "./about/Why"
@@ -38,5 +39,7 @@ export {
 	Ultimate,
 	ContactHero,
     HeroForm,
-	ContactForm
+	ContactForm,
+WhatSetsUsApart
+
 }

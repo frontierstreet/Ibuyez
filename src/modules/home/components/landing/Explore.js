@@ -9,7 +9,7 @@ const Card = ({ icon, header, content, link }) => (
 	  {/* <img src={icon} alt="icon" className="mx-auto w-12 h-12 mb-4" /> */}
 	  <h3 className="text-xl font-bold mb-2">{header}</h3>
 	  <p className="text-gray-600 mb-4">{content}</p>
-	  <Link to={link} className="inline-block px-4 py-2 border hover:border-blue hover:text-black hover:bg-white font-semibold rounded-md bg-blue text-white transition duration-300 ease-in-out transform hover:scale-105">
+	  <Link to={link} className="inline-block px-4 py-2 border hover:border-blue hover:text-black hover:bg-white font-semibold rounded-md bg-blue text-black transition duration-300 ease-in-out transform hover:scale-105">
       Learn More
     </Link>
 	</div>
