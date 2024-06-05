@@ -10,11 +10,13 @@ import { useLocation, useNavigate, useParams } from "react-router-dom"
 const FormFooter = ({
 	onNext,
 	step,
-	loading
+	loading,
+	hideNextBtn
 }: {
 	onNext: () => void
 	step: FormSteps
 	loading: boolean
+	hideNextBtn?: boolean
 }) => {
 	const { steps, data } = useContext(FormContext)
 	const navigate = useNavigate()
@@ -56,12 +58,17 @@ const FormFooter = ({
 			) : (
 				<div />
 			)}
-			<Button
-				loading={loading}
-				classNames="!px-10 !py-5 !bg-black"
-				text={"Next"}
-				onClick={onNext}
-			/>
+			{hideNextBtn ? (
+				<div />
+			) : (
+				<Button
+					loading={loading}
+					classNames="!px-10 !py-5 !bg-black"
+					textClassNames="!text-white"
+					text={"Next"}
+					onClick={onNext}
+				/>
+			)}
 		</MaxWidthItem>
 	)
 }

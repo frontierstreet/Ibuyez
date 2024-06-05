@@ -11,6 +11,8 @@ interface CustomInputProps {
 	prefix?: string
 	suffix?: string
 	hasError?: any
+	helpText?: string
+	italicizeDescription?: boolean
 }
 
 const CustomInput = ({
@@ -21,13 +23,22 @@ const CustomInput = ({
 	description,
 	prefix,
 	suffix,
-	hasError
+	hasError,
+	italicizeDescription
 }: CustomInputProps) => {
 	return (
 		<div className="flex flex-col space-y-2 w-full">
 			<div className="flex flex-col space-y-[2px]">
-				<h3 className="text-black text-[24px]">{label}</h3>
-				{description && <p className="text-[black] text-sm">{description}</p>}
+				<div className="space-y-[2px]"></div>
+				<h3 className="text-black text-[24px] capitalize">{label}</h3>
+				{description && (
+					<p
+						className={clsx("text-[black] text-sm", {
+							italic: italicizeDescription
+						})}>
+						{description}
+					</p>
+				)}
 			</div>
 			{isNumeric ? (
 				<NumericFormat

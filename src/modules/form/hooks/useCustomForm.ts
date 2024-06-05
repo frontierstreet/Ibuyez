@@ -32,7 +32,7 @@ const useCustomForm = (step: FormSteps) => {
 		const ReactSwal = withReactContent(Swal)
 		const response = await ReactSwal.fire({
 			title: "Offer processing...",
-			text: "We'll update you via email",
+			text: "We'll update you via email or call/text with questions",
 			icon: "success",
 			allowOutsideClick: false,
 			confirmButtonText: "Okay"
@@ -123,7 +123,7 @@ const useCustomForm = (step: FormSteps) => {
 		}
 	}, [])
 
-	const extract = (keys: (keyof FlattenedIbuyezSubmission)[], flatten?: boolean) => {
+	const extract = (keys: (keyof FlattenedIbuyezSubmission)[]) => {
 		const response: Partial<Record<keyof FlattenedIbuyezSubmission, any>> = {}
 		keys.map((key) => {
 			let item = data?.[key] || ""

@@ -132,20 +132,7 @@ export const NA = "NA"
 
 export const homeCommunityTypeOptions = ["Age restricted community", "Gated community", NA]
 
-export const extraInformationOptions = [
-	"Leased or financed solar panels",
-	{
-		title: "Known foundation issues",
-		subtitle: "Excessive cracking, uneven floors"
-	},
-	"Fire damage",
-	{ title: "Well water", subtitle: "You maintain a well to supply water" },
-	{ title: "Septic system", subtitle: "Separate from municipal sewage" },
-	"Asbestos siding",
-	{ title: "Horse property", subtitle: "Livestock live on property" },
-	"Mobile or manufactured home",
-	NA
-]
+export const extraInformationOptions = ["in-ground pool", "40x60 pole-barn", "Pond", NA]
 
 export const timeToSellHomeOptions = ["ASAP", "2-4 weeks", "4-6 weeks", "6+ weeks", "Just browsing"]
 

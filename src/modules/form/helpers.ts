@@ -1,7 +1,7 @@
 import { FlattenedIbuyezSubmission, FormSteps, IbuyezSubmission, Option } from "types/form"
 
 export const createSelectOptions = (options: Option[]) => {
-	return options.map((option) => ({ label: option, value: option }))
+	return options.map((option) => ({ label: option.toString(), value: option.toString() }))
 }
 
 export const formRoute = (step: FormSteps, formId?: string) =>
