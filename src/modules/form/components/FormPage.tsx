@@ -42,7 +42,8 @@ const FormPage = ({
 		control,
 		formState: { errors },
 		handleSubmit,
-		reset
+		reset,
+		watch
 	} = useForm({ defaultValues })
 
 	const onSubmit = (data: any) => {
@@ -71,12 +72,23 @@ const FormPage = ({
 							/>
 						</div>
 						<div className="lg:flex-1 lg:flex-shrink-0 pt-5">
-							<FormInputRenderer control={control} items={items} errors={errors} />
+							<FormInputRenderer
+								control={control}
+								items={items}
+								watch={watch}
+								errors={errors}
+								triggerSubmit={handleSubmit(onSubmit)}
+							/>
 						</div>
 					</div>
 				</motion.div>
 			</MaxWidthItem>
-			<FormFooter step={step} loading={submitting} onNext={handleSubmit(onSubmit)} />
+			<FormFooter
+				step={step}
+				loading={submitting}
+				onNext={handleSubmit(onSubmit)}
+				hideNextBtn={items.length === 1 && items[0].type === "list"}
+			/>
 		</div>
 	)
 }

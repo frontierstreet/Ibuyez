@@ -18,6 +18,7 @@ export interface FormOptionItemProps {
 }
 
 export interface FormPageItem {
+	italicizeDescription?: boolean
 	type: "image-select" | "list" | "select" | "input" | "numeric-input"
 	label?: string
 	description?: string
@@ -33,6 +34,7 @@ export interface FormPageItem {
 	fieldName: string
 	isMultiple?: boolean
 	autoFocus?: boolean
+	displayFlag?: { watch: string; displayOn: any[] }
 }
 
 export enum FormSteps {
@@ -52,7 +54,8 @@ export enum FormSteps {
 	sellTime = "sell-time",
 	homeBuilder = "home-builder",
 	homeBuilderSelect = "home-builder-select",
-	completion = "completion"
+	completion = "completion",
+	homeSituation = "home-situation"
 }
 
 export interface FormPageProps {

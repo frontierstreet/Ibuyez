@@ -1,6 +1,13 @@
 import React from "react"
-import { Control, Controller, FieldErrors, FieldValues } from "react-hook-form"
-import { FormPageItem, FormPageProps, FormSteps } from "types/form"
+import {
+	Control,
+	Controller,
+	FieldErrors,
+	FieldValues,
+	UseFormGetValues,
+	UseFormWatch
+} from "react-hook-form"
+import { FlattenedIbuyezSubmission, FormPageProps } from "types/form"
 import OptionGroup from "./OptionGroup"
 import CustomSelect from "./CustomSelect"
 import CustomInput from "./CustomInput"
@@ -9,13 +16,28 @@ import OptionGroupWithImage from "./OptionGroupWIthImage"
 interface FormInputRendererProps extends Pick<FormPageProps, "items"> {
 	control: Control<any, any>
 	errors: FieldErrors<FieldValues>
+	watch: UseFormWatch<Partial<Record<keyof FlattenedIbuyezSubmission, any>>>
+	triggerSubmit?: () => void
 }
 
-const FormInputRenderer = ({ control, items, errors }: FormInputRendererProps) => {
+const FormInputRenderer = ({
+	control,
+	items,
+	errors,
+	triggerSubmit,
+	watch
+}: FormInputRendererProps) => {
 	return (
 		<div className="flex flex-col space-y-8">
 			{items.map((item) => {
+				const shouldRender = !item.displayFlag
+					? true
+					: item.displayFlag &&
+						item.displayFlag.displayOn.includes(watch(item.displayFlag.watch as any))
 				const hasError = errors[item.fieldName]
+				if (!shouldRender) {
+					return null
+				}
 				if (item.type === "list") {
 					const options = Array.isArray(item.options) ? item.options : []
 					return (
@@ -28,7 +50,10 @@ const FormInputRenderer = ({ control, items, errors }: FormInputRendererProps) =
 								<OptionGroup
 									isMultiple={item.isMultiple}
 									selectedOption={value}
-									onOptionChange={(newValue) => onChange(newValue)}
+									onOptionChange={(newValue) => {
+										onChange(newValue)
+										triggerSubmit && triggerSubmit()
+									}}
 									hasError={hasError}
 									options={options}
 								/>
@@ -73,6 +98,7 @@ const FormInputRenderer = ({ control, items, errors }: FormInputRendererProps) =
 									hasError={errors[item.fieldName]}
 									label={item.label || ""}
 									description={item.description}
+									italicizeDescription={item.italicizeDescription}
 								/>
 							)}
 						/>

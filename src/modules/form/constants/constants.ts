@@ -1,4 +1,5 @@
 import {
+	NA,
 	americanStates,
 	bathroomDescriptionOptions,
 	extraInformationOptions,
@@ -21,6 +22,11 @@ import { getNumbers } from "../helpers"
 
 export const fieldNames = {
 	// address confirmation
+	name: "name",
+	phone: "phone",
+	doesHomeNeedRepairing: "doesHomeNeedRepairing",
+	whatNeedsRepairing: "whatNeedsRepairing",
+	otherDetails: "otherDetails",
 	streetAddress: "streetAddress",
 	unitNumber: "unitNumber",
 	city: "city",
@@ -33,7 +39,9 @@ export const fieldNames = {
 	bathroomCount: "bathroomCount",
 	partialBathroomCount: "partialBathroomCount",
 	squareFootageAboveGround: "squareFootageAboveGround",
-	lotSquareFootage: "lotSquareFootage",
+	squareFootageBelowGround: "squareFootageBelowGround",
+	percentageOfCompletedBasement: "percentageOfCompletedBasement",
+	lotSize: "lotSize",
 	floorsAboveGround: "floorsAboveGround",
 	floorsBelowGround: "floorsBelowGround",
 	yearBuilt: "yearBuilt",
@@ -54,6 +62,7 @@ export const fieldNames = {
 	homeExteriorDescription: "homeExteriorDescription",
 	// home owners
 	isHomeHomeOwnersAssociation: "isHomeHomeOwnersAssociation",
+	neighborhoodAllowsRentals: "neighborhoodAllowsRentals",
 	// home community group
 	homeCommunityGroup: "homeCommunityGroup",
 	// miscellaneous home features
@@ -70,7 +79,7 @@ export const fieldNames = {
 export const formMaker: Record<FormSteps, FormPageProps> = {
 	[FormSteps.addressConfirmation]: {
 		header: "Is this the correct address?",
-		description: "Confirm this is your home or enter a new address.",
+		description: "Confirm this is the property address or enter a new address.",
 		step: FormSteps.addressConfirmation,
 		items: [
 			{
@@ -81,7 +90,9 @@ export const formMaker: Record<FormSteps, FormPageProps> = {
 			{
 				type: "input",
 				label: "Unit number",
-				fieldName: fieldNames.unitNumber
+				description: "(if applicable)",
+				fieldName: fieldNames.unitNumber,
+				italicizeDescription: true
 			},
 			{
 				type: "input",
@@ -135,53 +146,122 @@ export const formMaker: Record<FormSteps, FormPageProps> = {
 			},
 			{
 				type: "select",
-				label: "Partial bathrooms",
+				label: "Half Bathrooms",
 				description: "Must have a toilet and sink.",
 				fieldName: fieldNames.partialBathroomCount,
-				options: getNumbers(1, 10)
+				options: getNumbers(0, 10)
 			},
 			{
 				type: "numeric-input",
 				inputSuffix: " ft²",
-				label: "Square footage (above ground)",
+				label: "Above-ground Square Footage",
 				description:
-					"Don't include basements, non-permitted additions, or non-heated square footage.",
+					"Don't include garages, basements, non-permitted additions, or non-heated square footage.",
 				fieldName: fieldNames.squareFootageAboveGround
 			},
 			{
 				type: "numeric-input",
 				inputSuffix: " ft²",
-				label: "Lot square footage",
-				description: "This is the length x width of your lot (in feet).",
-				fieldName: fieldNames.lotSquareFootage
+				label: "Below-ground Square Footage",
+				description: "(If any)",
+				italicizeDescription: true,
+				fieldName: fieldNames.squareFootageBelowGround
+			},
+			{
+				type: "select",
+				label: "What percent of the basement (if any) is finished and climate controlled?",
+				fieldName: fieldNames.percentageOfCompletedBasement,
+				options: [NA, "25%", "50%", "75%", "100%"]
+			},
+			{
+				type: "select",
+				label: "Lot Size",
+				fieldName: fieldNames.lotSize,
+				options: [
+					"< 0.25 acre",
+					"0.25 - 0.5 acre",
+					"0.5 - 1 acre",
+					"1 - 3 acres",
+					"3 - 5 acres",
+					"5 - 10 acres",
+					">10 acres"
+				]
 			},
 			{
 				type: "select",
 				label: "Floors (above ground)",
 				description: "Don't include the basement.",
 				fieldName: fieldNames.floorsAboveGround,
-				options: getNumbers(1, 3)
-			},
-			{
-				type: "select",
-				label: "Basement",
-				description: "Floors that are completely below ground.",
-				fieldName: fieldNames.floorsBelowGround,
-				options: yesNoOptions
+				options: ["1", "1 + finished attic space", "1.5", "2", "3"]
 			},
 			{
 				type: "select",
 				label: "Year built",
 				fieldName: fieldNames.yearBuilt,
 				options: getNumbers(1874, new Date().getFullYear())
-			},
-			{
-				type: "select",
-				label: "Pool",
-				fieldName: fieldNames.pool,
-				options: poolOptions
 			}
 			// carport spaces
+		]
+	},
+	[FormSteps.miscellaneousHomeFeatures]: {
+		header: "Other amenities",
+		description: "Select all that apply.",
+		step: FormSteps.miscellaneousHomeFeatures,
+		items: [
+			{
+				type: "list",
+				options: extraInformationOptions,
+				fieldName: fieldNames.miscellaneousHomeFeatures,
+				isMultiple: true
+			}
+		]
+	},
+	[FormSteps.homeSituation]: {
+		header: "Home Situation",
+		description: "",
+		step: FormSteps.homeSituation,
+		items: [
+			{
+				type: "select",
+				label: "Does your home need updating or repairs?",
+				fieldName: fieldNames.doesHomeNeedRepairing,
+				options: yesNoOptions
+			},
+			{
+				type: "input",
+				fieldName: fieldNames.whatNeedsRepairing,
+				label: "What needs updating or repaired ?",
+				description: "(if any)",
+				italicizeDescription: true
+			},
+			{
+				type: "input",
+				fieldName: fieldNames.otherDetails,
+				label: "Other details about your property or situation"
+			}
+		]
+	},
+	[FormSteps.isHomeHomeOwnersAssociation]: {
+		header: "Homeowners association",
+		description: "",
+		step: FormSteps.isHomeHomeOwnersAssociation,
+		items: [
+			{
+				label: "Is your home part of a homeowners association (HOA) or condo association?",
+				type: "select",
+				options: ["HOA", "Condo", "Other", "None"],
+				fieldName: fieldNames.isHomeHomeOwnersAssociation
+			},
+			{
+				displayFlag: {
+					watch: fieldNames.isHomeHomeOwnersAssociation,
+					displayOn: ["HOA", "Condo", "Other"]
+				},
+				label: "Does your neighborhood allow rentals?",
+				type: "select",
+				options: ["Yes", "No", "I don't know"],
+				fieldName: fieldNames.neighborhoodAllowsRentals
+			}
 		]
 	},
 	[FormSteps.homeOwnerConfirmation]: {
@@ -268,19 +348,6 @@ export const formMaker: Record<FormSteps, FormPageProps> = {
 			}
 		]
 	},
-	[FormSteps.isHomeHomeOwnersAssociation]: {
-		header: "Is your home part of a homeowners association?",
-		description:
-			"This is often called an HOA. It's a group that helps maintain your community for a fee.",
-		step: FormSteps.isHomeHomeOwnersAssociation,
-		items: [
-			{
-				type: "list",
-				options: yesNoOptions,
-				fieldName: fieldNames.isHomeHomeOwnersAssociation
-			}
-		]
-	},
 	[FormSteps.homeCommunityGroup]: {
 		header: "Does your home belong to any of these types of communities?",
 		description:
@@ -295,20 +362,7 @@ export const formMaker: Record<FormSteps, FormPageProps> = {
 			}
 		]
 	},
-	[FormSteps.miscellaneousHomeFeatures]: {
-		header: "Do any of these apply to your home?",
-		description:
-			"Select all that apply. We keep an eye out for these things when we're making an offer.",
-		step: FormSteps.miscellaneousHomeFeatures,
-		items: [
-			{
-				type: "list",
-				options: extraInformationOptions,
-				fieldName: fieldNames.miscellaneousHomeFeatures,
-				isMultiple: true
-			}
-		]
-	},
+
 	[FormSteps.sellTime]: {
 		header: "When do you need to sell your home?",
 		description: "This won't affect your offer. We're here to help with any timeline.",
@@ -346,16 +400,29 @@ export const formMaker: Record<FormSteps, FormPageProps> = {
 		]
 	},
 	[FormSteps.completion]: {
-		header: "Submit your email-address",
+		header: "Submit your details",
 		description:
-			"Provide a means for us to reach out to you with an offer. You will not able to edit your entry after this step. Please save instead if you still want to be able to edit this entry",
+			"We need name, phone number, and email so we can reach out with question and provide an offer.",
 		step: FormSteps.completion,
 		items: [
 			{
 				type: "input",
-				fieldName: fieldNames.email,
+				fieldName: fieldNames.name,
 				autoFocus: true,
-				rules: { validate: validators.validateEmail }
+				rules: { validate: validators.validateString },
+				label: "Name"
+			},
+			{
+				type: "input",
+				fieldName: fieldNames.phone,
+				rules: { validate: validators.validateString },
+				label: "Phone"
+			},
+			{
+				type: "input",
+				fieldName: fieldNames.email,
+				rules: { validate: validators.validateEmail },
+				label: "Email"
 			}
 		]
 	}

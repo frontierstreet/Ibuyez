@@ -25,7 +25,7 @@ const CustomSelect = ({
 	return (
 		<div className="flex flex-col space-y-2 w-full">
 			<div className="flex flex-col space-y-[2px]">
-				<h3 className="text-black text-[24px]">{label}</h3>
+				<h3 className="text-black text-[24px] capitalize">{label}</h3>
 				{description && <p className="text-[black] text-sm">{description}</p>}
 			</div>
 			<RSelect
