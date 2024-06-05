@@ -4,7 +4,7 @@ import { Button } from "../../../common/components"
 
 const ContactHero = () => {
 	return (
-		<div className="px-4 868:max-w-[100%] mt-[100px]  mx-auto">
+		<div className="px-4 868:max-w-[100%] pt-[150px] md:pt-[0px]  mx-auto">
 			<div className="flex flex-col items-start  md:px-20 gap-4 md:mt-20 z-10">
 				<div className="flex-1 flex flex-col ">
 					<h3 className="md:text-[60px] z-10 md:leading-[75px] max-w-[894px]  950:pt-[150px] 950:text-[80px] 950:leading-[96px] text-[41.04px] leading-[49.24px] text-white font-black">
