@@ -11,7 +11,7 @@ const AboutHero = () => {
 						About Us
 					</h3>
 					<p className="text-normal z-10 text-black text-[16px] mt-4 max-w-[838px]  leading-[28.03px] md:text-[18px] md:leading-[32px] 950:text-[20px] 950:leading-[38.4px]">
-					Welcome to ibuyez.com, your trusted partner in wholesale real estate solutions. 
+					Welcome to IBuyEZ.com, your trusted partner in wholesale real estate solutions. 
 					We specialize in revolutionizing the way you buy and sell properties.
 					</p>
 				</div>

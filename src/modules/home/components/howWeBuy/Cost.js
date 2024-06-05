@@ -8,7 +8,7 @@ const Cost = () => {
 			<div className="flex flex-col justify-between gap-10 max-w-[1330px] mx-auto">
 				<div className="flex flex-col items-start max-w-[643px] gap-3">
 					<h3 className="md:text-[60px] md:leading-[40px] uppercase 950:text-[55px] 950:leading-[70px] text-[30.04px] leading-[49.24px] text-black font-normal">
-						Inside an IbuyEZ offer: costs and fees
+						Inside an IBuyEZ offer: costs and fees
 					</h3>
 					<p className="text-normal text-[16px] max-w-[90%] leading-[28.03px] md:text-[18px] md:leading-[32px] 950:text-[20px] 950:leading-[38.4px]">
 						This is our first pass. We calculate an estimate based on our pricing data

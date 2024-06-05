@@ -17,7 +17,7 @@ const Process = () => {
 				<div className=" flex flex-col md:flex-row items-center gap-5 md:gap-10 w-[100%]">
 					<div className=" bg-white border flex-1  px-5 py-6 rounded-[20px]">
 						<h3 className="md:text-[30px] md:px-2 mt-4 flex-1 md:leading-[35px] uppercase    950:text-[30px] 950:leading-[40px] text-[20px] leading-[49.24px] text-black font-normal">
-							Sell to IbuyEZ
+							Sell to IBuyEZ
 						</h3>
 						<p className="text-normal flex-1 md:px-2 text-[16px] mt-2 leading-[28.03px] md:text-[16px] md:leading-[32px] 950:text-[16px] 950:leading-[25px]">
 							Sell right away. We can buy your home in days. No showings required.
