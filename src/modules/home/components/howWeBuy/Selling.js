@@ -29,7 +29,7 @@ const Selling = () => {
 							alt="property image"
 						/>
 						<h3 className="md:text-[30px] md:px-2 mt-4 flex-1 md:leading-[35px]   950:text-[30px] 950:leading-[40px] text-[16px] leading-[49.24px] text-black font-normal">
-							Sell to IBuyEZ
+							Sell to iBuyEZ
 						</h3>
 						<p className="text-normal flex-1 md:px-2 text-[16px] mt-2 leading-[28.03px] md:text-[18px] md:leading-[32px] 950:text-[16px] 950:leading-[25px]">
 							Sell right away. We can buy your home in days. No showings required.

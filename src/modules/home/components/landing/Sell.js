@@ -11,8 +11,18 @@ const List = [
 	" ✅ Flexible Time Frames",
 	" ✅ Stay In Your Home  ",
 	" ✅ Help With Moving Expenses",
-	" ✅ More EZ Stuff"
-    
+	" ✅ More EZ Stuff"  
+]
+
+const Mark = [
+	"❌ Agents",
+	"❌ Fees",
+	"❌ Repairs ",
+	"❌ Showings",
+	"❌ Headaches",
+	"❌ Rules ",
+	"❌ Stress ",
+	"❌ More Hard Stuff"
 ]
 
 const Sell = () => {
@@ -23,12 +33,17 @@ const Sell = () => {
 			<div>
 				<div className="flex flex-col md:flex-row md:items-center gap-4 md:gap-10 mb-5">
 					<h3 className="md:text-[60px] flex-1 md:leading-[75px]    950:text-[55px] 950:leading-[96px] text-[41.04px] leading-[49.24px] text-black font-bold">
-						Sell to IBuyEZ.
+						Sell to iBuyEZ.
 						<br /> <span className="text-blue">Skip the hard parts.</span>
 					</h3>
-					<p className="text-normal flex-1 text-[16px] mt-2 leading-[28.03px] md:text-[18px] md:leading-[32px] 950:text-[25px] 950:leading-[38.4px]">
-					❌ Agents   ❌ Fees   ❌ Repairs   ❌ Showings   ❌ Headaches   ❌ Rules   ❌ Stress  ❌ More Hard Stuff
-					</p>
+					<div className="flex flex-1 flex-wrap gap-2">
+					 {Mark.map((item, index)=>(
+					 <p key={index} className=" flex text-[16px] mt-2 leading-[28.03px] md:text-[18px] md:leading-[32px] 950:text-[25px] 950:leading-[38.4px]">
+						{item}
+					  </p>
+					 ))}
+					</div>
+					
 				</div>
 				<div className=" flex flex-col md:flex-row items-center gap-5 md:gap-10 w-[100%]">
 					<img

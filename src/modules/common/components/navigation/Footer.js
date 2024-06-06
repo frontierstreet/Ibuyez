@@ -90,8 +90,8 @@ const Footer = () => {
 				</div>
 				<div className="mt-[75px] flex items-center justify-center">
 					<p className="text-black text-sm leading-4 text-center">
-						2024 IBuyEZ.com. | All Rights Reserved. <br/>
-						<span>One or more of the individuals with an ownership interest in IBuyEZ.com hold(s) a real estate license in the State of Indiana. By using this site you are attesting that you are not represented by or in an agency relationship with any of the licensees affiliated with IBuyEZ.com.</span>
+						2024 iBuyEZ.com. | All Rights Reserved. <br/>
+						<span>One or more of the individuals with an ownership interest in iBuyEZ.com hold(s) a real estate license in the State of Indiana. By using this site you are attesting that you are not represented by or in an agency relationship with any of the licensees affiliated with iBuyEZ.com.</span>
 					</p>
 				</div>
 			</div>

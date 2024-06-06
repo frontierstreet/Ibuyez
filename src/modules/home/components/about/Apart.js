@@ -12,7 +12,7 @@ const WhatSetsUsApart = () => {
 				</div>
 				<div className="flex flex-col md:flex-row items-center justify-between gap-5 md:gap-10 mb-5 relative">
 					<p className="text-normal flex-1 text-[16px] mt-4 leading-[28.03px] md:text-[18px] md:leading-[32px] 950:text-[20px] 950:leading-[38.4px]">
-						At IBuyEZ.com, we differentiate ourselves through our extensive network, market expertise, and innovative technology. Our team of seasoned professionals works tirelessly to connect buyers and sellers efficiently. With our deep understanding of the real estate market and commitment to customer satisfaction, we ensure every transaction is smooth and successful. Our advanced platform streamlines the process, offering you the best deals and opportunities in the wholesale real estate market.
+						At iBuyEZ.com, we differentiate ourselves through our extensive network, market expertise, and innovative technology. Our team of seasoned professionals works tirelessly to connect buyers and sellers efficiently. With our deep understanding of the real estate market and commitment to customer satisfaction, we ensure every transaction is smooth and successful. Our advanced platform streamlines the process, offering you the best deals and opportunities in the wholesale real estate market.
 					</p>
 				</div>
 			</div>

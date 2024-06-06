@@ -7,7 +7,7 @@ const Mission = () => {
 			<div>
 				<div className="flex flex-col md:flex-row items-center gap-5 md:gap-10 mb-5">
 					<p className="text-normal mb-2 flex-1 text-[40px] mt-4 leading-[40px] md:text-[60px] md:leading-[32px] 950:text-[70px] 950:leading-[60px]">
-					At IBuyEZ.com, we're not just another <br/> company
+					At iBuyEZ.com, we're not just another <br/> company
 					</p>
 				</div>
 				<div className="flex flex-col md:flex-row items-center  justify-between gap-5 md:gap-10 mb-5 relative">

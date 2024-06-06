@@ -74,7 +74,7 @@ export const situations = [
       id: 'just-need-quick-simple-transaction',
       icon: '/path-to-icon11.png',
       header: 'Just Need a Quick and Simple Transaction — EZ',
-      content: 'That’s almost literally our name… IBuyEZ.com.',
+      content: 'That’s almost literally our name… iBuyEZ.com.',
       link: '/just-need-quick-simple-transaction',
     },
     {

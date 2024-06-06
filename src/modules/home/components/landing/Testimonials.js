@@ -10,21 +10,21 @@ const testimonialsList = [
 	{
 	  id: 2,
 	  testimonial:
-		"Selling our house to IBuyEZ was incredibly easy. The process was straightforward, and we received a fair offer quickly.",
+		"Selling our house to iBuyEZ was incredibly easy. The process was straightforward, and we received a fair offer quickly.",
 	  name: "John A. Doe",
 	  img: GirlImg, 
 	},
 	{
 	  id: 3,
 	  testimonial:
-		"The team at IBuyEZ was professional and helpful throughout the entire process. I would definitely recommend them to others looking to sell their home quickly.",
+		"The team at iBuyEZ was professional and helpful throughout the entire process. I would definitely recommend them to others looking to sell their home quickly.",
 	  name: "Emily R. Johnson",
 	  img: GirlImg, 
 	},
 	{
 	  id: 4,
 	  testimonial:
-		"We had a great experience with IBuyEZ. They made selling our home stress-free and even helped with our moving expenses.",
+		"We had a great experience with iBuyEZ. They made selling our home stress-free and even helped with our moving expenses.",
 	  name: "Michael B. Lee",
 	  img: GirlImg, 
 	},
