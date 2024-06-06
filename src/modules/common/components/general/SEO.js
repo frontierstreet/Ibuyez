@@ -1,7 +1,7 @@
 import { Helmet } from "react-helmet-async"
 
 export default function SEO({ title, description, image }) {
-	const parsedTitle = title ? `IBuyEZ.COM || ${title}` : "IBuyEZ.COM"
+	const parsedTitle = title ? `IBuyEZ || ${title}` : "IBuyEZ"
 	return (
 		<Helmet>
 			{/* Standard metadata tags */}
