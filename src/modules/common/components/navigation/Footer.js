@@ -39,6 +39,13 @@ const Footer = () => {
 								</span>
 							</Link>
 						</li>
+						<li>
+							<Link to={"mailto:jack@ibuyez.homes"}>
+								<span className="text-black text-base leading-6">
+									Email:Jack@iBuyEZ.homes
+								</span>
+							</Link>
+						</li>
 						
 						{/* <li><span className='text-black text-base leading-6'>Property Preference</span></li> */}
 					</ul>

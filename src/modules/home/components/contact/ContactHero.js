@@ -1,8 +1,10 @@
 import React from "react"
 import landingImg from "../../assets/images/Hero Image.png"
 import { Button } from "../../../common/components"
+import { useNavigate } from "react-router-dom"
 
 const ContactHero = () => {
+	const navigate = useNavigate()
 	return (
 		<div className="px-4 868:max-w-[100%] pt-[150px] md:pt-[0px]  mx-auto">
 			<div className="flex flex-col items-start  md:px-20 gap-4 md:mt-20 z-10">
@@ -11,8 +13,8 @@ const ContactHero = () => {
 						Get in touch
 					</h3>
 					<div className="z-10 flex flex-wrap gap-4 mt-4">
-						<Button text="support@iBuyEZ.com" />
-						<Button text="317-812-3417" />
+						<Button text="jack@iBuyEZ.homes" onClick={() =>window.location.href="mailto:jack@iBuyEZ.homes"} />
+						<Button text="765-570-6789" onClick={()=>window.location.href="tel:+17655706789"} />
 						<a href="#contact-form" title="Fill out contact form">
 							<Button text="Fill out contact form" />
 						</a>
