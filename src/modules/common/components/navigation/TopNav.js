@@ -33,7 +33,7 @@ export const TopNavMenu = ({ isVisible, onClose, goToLogin }) => {
 		<div
 			className={clsx(
 				"fixed top-0 left-0 h-screen z-[40]  flex flex-col space-y-[68px] pb-[100px] overflow-y-auto w-screen bg-blue text-black transition-all",
-				{ "!pointer-events-none !opacity-0": !isVisible }
+				{ " !opacity-0": !isVisible }
 			)}>
 			<Exit className="top-[34px] right-[30px]  absolute" onClick={() => onClose()} />
 			<div className="mt-[17vh] flex items-center justify-center">
@@ -71,11 +71,11 @@ export const TopNavMenu = ({ isVisible, onClose, goToLogin }) => {
 					</li>
 				))}
 			</ul>
-			{goToLogin && (
+			{/* {goToLogin && (
 				<div className="flex items-center justify-center">
 					<Button text={"Sign In"} onClick={goToLogin} />
 				</div>
-			)}
+			)} */}
 		</div>
 	)
 }
@@ -115,7 +115,7 @@ const TopNav = () => {
 				className={clsx(
 					"fixed top-[0] lg:top-[0px] flex items-center justify-between bg-white h-[110.3px] lg:h-[120px] w-full px-5 lg:pl-[60px] lg:pr-[40px] z-[40] transition-all duration-300  ml-[50%] translate-x-[-50%]  max-w-[1420px] xl:max-w-[100%] ",
 					{
-						" bg-white text-black pointer-events-none": isScrolled
+						" bg-white text-black ": isScrolled
 					}
 				)}>
 				<Link to={routes.home}>
@@ -156,12 +156,13 @@ const TopNav = () => {
 							))}
 						</ul>
 						<div className="flex space-x-1">
-							<Button
-								text={"Get cash offer"}
-								// classNames="bg-[#fddf14]"
-								// textClassNames="!text-black"
-								onClick={() => navigate("/admin/add-listing")}
+
+						<a href="#cash-offer">
+						   <Button
+								text={"Get cash offer"}	
 							/>
+						</a>
+							
 
 							{/* <Button classNames={clsx({ "bg-[red]": authInfo || userInfo })} textClassNames={clsx({ "text-black": authInfo || userInfo })} text={(userInfo || authInfo) ? "Logout" : "Sign In"} onClick={onButtonClick}
                             /> */}
