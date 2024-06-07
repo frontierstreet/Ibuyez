@@ -10,7 +10,7 @@ const NavigationWrapper = ({
 	title,
 	description,
 	image,
-	handleSEO = true,
+	handleSEO = false,
 	hasFooter = true
 }) => {
 	useEffect(() => {
