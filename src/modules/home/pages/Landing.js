@@ -1,5 +1,5 @@
 import React from "react"
-import Logo from "../../common/assets/icons/logo1.svg"
+import Logo from "../../common/assets/image/og.png"
 
 import {
 	About,

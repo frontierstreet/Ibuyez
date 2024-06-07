@@ -14,7 +14,7 @@ interface ButtonProps {
 const Button = ({
 	classNames,
 	textClassNames,
-	bgColor = "bg-blue",
+	bgColor = "bg-[#E0E111]",
 	text,
 	onClick,
 	type = "button",
