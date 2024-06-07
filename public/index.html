@@ -16,8 +16,17 @@
     <meta property="og:description" content="SELL YOUR HOME THE EZ WAY " />
     <meta name="twitter:title" content="iBuyEZ" />
     <meta name="twitter:description" content="SELL YOUR HOME THE EZ WAY " />
-    <meta property='og:image' content=__IMAGE__ />
-    <meta name="twitter:image" content=__IMAGE__ />
+    <meta property='og:image' content= "%PUBLIC_URL%/logo1.svg"/>
+    <meta name="twitter:image" content="%PUBLIC_URL%/logo1.svg" />
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YCY10T7J0C"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-YCY10T7J0C');
+  </script>
     <!--
       Notice the use of %PUBLIC_URL% in the tags above.
       It will be replaced with the URL of the `public` folder during the build.
@@ -27,7 +36,6 @@
       work correctly both with client-side routing and a non-root public URL.
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
-    <title>React App</title>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
