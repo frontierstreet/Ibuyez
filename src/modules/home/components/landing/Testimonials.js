@@ -1,5 +1,8 @@
 import React, { useState } from "react";
 import GirlImg from "../../assets/images/girl-testimonial.png";
+import BoyImg from "../../assets/images/boy-testimonial.png";
+import ManImg from "../../assets/images/man-testimonial.png";
+
 // import { ReactComponent as Arrow } from "../../assets/icons/arrow.svg";
 import { ReactComponent as Star } from "../../assets/icons/star.svg";
 import { ReactComponent as LeftArrow } from "../../assets/icons/left.svg"; 
@@ -11,8 +14,8 @@ const testimonialsList = [
 	  id: 2,
 	  testimonial:
 		"Selling our house to iBuyEZ was incredibly easy. The process was straightforward, and we received a fair offer quickly.",
-	  name: "John A. Doe",
-	  img: GirlImg, 
+	  name: "John A. Daniel",
+	  img: BoyImg, 
 	},
 	{
 	  id: 3,
@@ -26,7 +29,7 @@ const testimonialsList = [
 	  testimonial:
 		"We had a great experience with iBuyEZ. They made selling our home stress-free and even helped with our moving expenses.",
 	  name: "Michael B. Lee",
-	  img: GirlImg, 
+	  img: ManImg, 
 	},
   ];
   
