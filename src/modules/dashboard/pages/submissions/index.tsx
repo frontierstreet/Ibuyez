@@ -30,7 +30,7 @@ const Submissions = () => {
 				return (
 					<div className="flex flex-col space-y-2">
 						<span>{formatAddress(record.address)}</span>
-						<span className="text-[12px]">Zip : {record.address.zipCode}</span>
+						<span className="text-[12px]">Zip : {record.address?.zipCode}</span>
 					</div>
 				)
 			}
