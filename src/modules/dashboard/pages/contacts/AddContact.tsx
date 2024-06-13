@@ -2,9 +2,7 @@ import React from "react"
 import { MinusCircleOutlined, PlusOutlined } from "@ant-design/icons"
 import { Button, Form, FormProps, Input } from "antd"
 
-type FieldType{
-	
-}
+export interface FieldType {}
 
 const formItemLayout = {
 	labelCol: {
