@@ -8,7 +8,12 @@ import { ColumnsType } from "types/shared"
 import moment from "moment"
 
 const formatAddress = (address: IbuyezSubmissionType["address"]) => {
-	const addressParts = [address.unitNumber, address.streetAddress, address.city, address.state]
+	const addressParts = [
+		address?.unitNumber,
+		address?.streetAddress,
+		address?.city,
+		address?.state
+	]
 	return addressParts.filter((item) => !!item).join(", ")
 }
 
