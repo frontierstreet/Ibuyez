@@ -1,6 +1,10 @@
 import React from "react"
 import { MinusCircleOutlined, PlusOutlined } from "@ant-design/icons"
-import { Button, Form, Input } from "antd"
+import { Button, Form, FormProps, Input } from "antd"
+
+type FieldType{
+	
+}
 
 const formItemLayout = {
 	labelCol: {
@@ -20,6 +24,10 @@ const formItemLayoutWithOutLabel = {
 	}
 }
 
+const onFinishFailed: FormProps<any>["onFinishFailed"] = (errorInfo) => {
+	console.log("Failed:", errorInfo)
+}
+
 const AddContact = () => {
 	const onFinish = (values: any) => {
 		console.log("Received values of form:", values)
@@ -29,9 +37,12 @@ const AddContact = () => {
 			<h1 className="font-bold text-[30px] text-center">Add New Contact</h1>
 			<Form
 				name="dynamic_form_item"
-				className="min-w-[500px] max-w-[600px]"
-				{...formItemLayoutWithOutLabel}
+				className="min-w-[400px] max-w-[600px]"
+				labelCol={{ span: 8 }}
+				wrapperCol={{ span: 16 }}
 				onFinish={onFinish}
+				onFinishFailed={onFinishFailed}
+				autoComplete="off"
 				style={{ maxWidth: 600 }}>
 				<Form.List
 					name="names"
