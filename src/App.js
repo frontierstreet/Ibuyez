@@ -3,6 +3,8 @@ import React, { Suspense } from "react"
 import { Toaster } from "react-hot-toast"
 import { HelmetProvider } from "react-helmet-async"
 import FormContextProvider from "modules/form/components/FormContext"
+import { Provider } from "react-redux"
+import { store } from "store"
 
 const AppLoader = () => {
 	return (
@@ -32,16 +34,18 @@ const AppLoader = () => {
 function App() {
 	const helmetContext = {}
 	return (
-		<HelmetProvider context={helmetContext}>
-			<FormContextProvider>
-				<div className="min-h-screen">
-					<Toaster position="bottom-center" />
-					<Suspense fallback={AppLoader}>
-						<Router />
-					</Suspense>
-				</div>
-			</FormContextProvider>
-		</HelmetProvider>
+		<Provider store={store}>
+			<HelmetProvider context={helmetContext}>
+				<FormContextProvider>
+					<div className="min-h-screen">
+						<Toaster position="bottom-center" />
+						<Suspense fallback={AppLoader}>
+							<Router />
+						</Suspense>
+					</div>
+				</FormContextProvider>
+			</HelmetProvider>
+		</Provider>
 	)
 }
 
