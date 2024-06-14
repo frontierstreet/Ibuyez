@@ -1,7 +1,7 @@
 import { createApi } from "@reduxjs/toolkit/query/react"
-import { baseQuery, getParamsFromSearchParams } from "./utils"
+import { POST, baseQuery, getParamsFromSearchParams } from "./utils"
 import { APISearchParams, PaginatedData } from "types/shared"
-import { ContactFormType, IbuyezSubmissionType } from "types/admin"
+import { ContactFormType, ContactType, IbuyezSubmissionType } from "types/admin"
 
 interface LoginResponse {
 	email: string
@@ -52,10 +52,11 @@ export const authApi = createApi({
 			invalidatesTags: ["contacts"],
 			query: (payload) => ({
 				url: "/admin/contacts",
-				body: payload
+				body: payload,
+				method: POST
 			})
 		}),
-		getContacts: builder.query<any, APISearchParams>({
+		getContacts: builder.query<PaginatedData<ContactType>, APISearchParams>({
 			providesTags: ["contacts"],
 			query: (params) => ({
 				url: "/admin/contacts",

@@ -43,3 +43,16 @@ export interface ContactFormType {
 	createdAt: string
 	updatedAt: string
 }
+
+export interface ContactType {
+	_id: string
+	companyName?: string
+	firstName?: string
+	lastName?: string
+	address?: string
+	city?: string
+	state?: string
+	zipCode?: string
+	phoneNumbers?: string[]
+	emails?: string[]
+}
