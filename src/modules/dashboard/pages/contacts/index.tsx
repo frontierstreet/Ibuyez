@@ -92,7 +92,6 @@ const ContactList = () => {
 				loading={isLoading || isFetching}
 				onPageChange={setCurrentPage}
 				currentPage={currentPage}
-				scroll={{ x: 3000 }}
 			/>
 		</div>
 	)
