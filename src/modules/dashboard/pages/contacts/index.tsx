@@ -6,8 +6,65 @@ import React from "react"
 import { useGetContactsQuery } from "store/api/dashboard-service"
 import { PlusCircleFilled } from "@ant-design/icons"
 import { useNavigate } from "react-router-dom"
+import { ColumnsType } from "types/shared"
+import { ContactType } from "types/admin"
 
-const columns: any[] = []
+const columns: ColumnsType<ContactType> = [
+	{
+		title: "First name",
+		key: "firstName",
+		dataIndex: "firstName"
+	},
+	{
+		title: "Last name",
+		key: "lastName",
+		dataIndex: "lastName"
+	},
+	{
+		title: "Address",
+		key: "address",
+		dataIndex: "address"
+	},
+	{
+		title: "City",
+		dataIndex: "city",
+		key: "city"
+	},
+	{
+		title: "State",
+		dataIndex: "state",
+		key: "state"
+	},
+	{
+		title: "Zip Code",
+		dataIndex: "zipCode",
+		key: "zipCode"
+	},
+	{
+		title: "Phone Numbers",
+		dataIndex: "phoneNumbers",
+		key: "phoneNumbers",
+		render(value, record, index) {
+			return (
+				<div className="flex flex-col space-y-2">
+					{record.phoneNumbers?.map((number) => <span key={number}>{number}</span>)}
+				</div>
+			)
+		}
+	},
+	{
+		title: "Emails",
+		dataIndex: "emails",
+		key: "emails",
+		render(value, record, index) {
+			return (
+				<div className="flex flex-col space-y-2">
+					{record.emails?.map((email) => <span key={email}>{email}</span>)}
+				</div>
+			)
+		}
+	}
+]
 
 const ContactList = () => {
 	const navigate = useNavigate()
@@ -35,7 +92,6 @@ const ContactList = () => {
 				loading={isLoading || isFetching}
 				onPageChange={setCurrentPage}
 				currentPage={currentPage}
-				scroll={{ x: 3000 }}
 			/>
 		</div>
 	)

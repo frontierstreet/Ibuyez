@@ -8,7 +8,12 @@ import { ColumnsType } from "types/shared"
 import moment from "moment"
 
 const formatAddress = (address: IbuyezSubmissionType["address"]) => {
-	const addressParts = [address.unitNumber, address.streetAddress, address.city, address.state]
+	const addressParts = [
+		address?.unitNumber,
+		address?.streetAddress,
+		address?.city,
+		address?.state
+	]
 	return addressParts.filter((item) => !!item).join(", ")
 }
 
@@ -25,7 +30,7 @@ const Submissions = () => {
 				return (
 					<div className="flex flex-col space-y-2">
 						<span>{formatAddress(record.address)}</span>
-						<span className="text-[12px]">Zip : {record.address.zipCode}</span>
+						<span className="text-[12px]">Zip : {record.address?.zipCode}</span>
 					</div>
 				)
 			}
