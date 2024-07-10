@@ -19,6 +19,7 @@ import HowWeWork from "./landing/HowWeWork"
 import Sell from "./landing/Sell"
 import Started from "./landing/Started"
 import Testimonials from "./landing/Testimonials"
+import ScheduleHome from "./schedule/ScheduleHome"
 export {
 	Hero,
 	Discover,
@@ -40,6 +41,8 @@ export {
 	ContactHero,
     HeroForm,
 	ContactForm,
-WhatSetsUsApart
+    WhatSetsUsApart,
+    ScheduleHome
+
 
 }

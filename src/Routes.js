@@ -1,4 +1,4 @@
-import { Landing, HowWeBuy, About, Contact, SituationTemplate } from "./modules/home/pages"
+import { Landing, HowWeBuy, About, Contact, SituationTemplate, Schedule } from "./modules/home/pages"
 import CONSTANTS from "./modules/common/utils/Constant"
 import { useLocation, useRoutes } from "react-router-dom"
 import { formRoute } from "modules/form/helpers"
@@ -30,6 +30,7 @@ const situationRoutes = situations.map((situation) => ({
 }))
 
 const Router = () => {
+	const subdomain = window.location.hostname.split('.')[0];
 	const [ready, setReady] = useState(false)
 	const [getProfile] = useLazyGetProfileQuery()
 	const dispatch = useDispatch()
@@ -53,6 +54,10 @@ const Router = () => {
 		}
 	])
 	const location = useLocation()
+
+	const scheduleElement = useRoutes([
+		{ path: "/", element: <Schedule /> }
+	  ]);
 
 	const checkForToken = async () => {
 		try {
@@ -82,7 +87,7 @@ const Router = () => {
 
 	return (
 		<AnimatePresence mode="wait">
-			{React.cloneElement(element, { key: location.pathname })}
+			{React.cloneElement(subdomain === 'schedule' ? scheduleElement : element, { key: location.pathname }) }
 		</AnimatePresence>
 	)
 }
