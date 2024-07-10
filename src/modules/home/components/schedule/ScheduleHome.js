@@ -10,4 +10,4 @@ const ScheduleHome = () => {
   )
 }
 
-export default ScheduleHome
+export default ScheduleHome 
