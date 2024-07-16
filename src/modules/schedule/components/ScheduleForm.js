@@ -10,6 +10,10 @@ const FormContainer = styled.div`
 	background-color: #f9f9f9;
 	border-radius: 5px;
 	margin-top: 50px;
+
+	@media (max-width: 768px) {
+		max-width: 90%;
+	}
 `
 
 const FormGroup = styled.div`
@@ -55,6 +59,21 @@ const Button = styled.button`
 	}
 `
 
+const Spinner = styled.div`
+	border: 4px solid rgba(0, 0, 0, 0.1);
+	border-left-color: #000;
+	border-radius: 50%;
+	width: 24px;
+	height: 24px;
+	animation: spin 1s linear infinite;
+
+	@keyframes spin {
+		to {
+			transform: rotate(360deg);
+		}
+	}
+`
+
 const StepForm = () => {
 	const [formData, setFormData] = useState({
 		name: "",
@@ -73,6 +92,7 @@ const StepForm = () => {
 	const [currentStep, setCurrentStep] = useState(1)
 	const [responseMessage, setResponseMessage] = useState("")
 	const [formErrors, setFormErrors] = useState({})
+	const [isLoading, setIsLoading] = useState(false)
 
 	const handleChange = (e) => {
 		const { name, value, type, checked } = e.target
@@ -116,24 +136,29 @@ const StepForm = () => {
 	const handleSubmit = async (e) => {
 		e.preventDefault()
 		if (validateStep()) {
+			setIsLoading(true)
 			try {
 				await scheduleService.scheduleForm(formData)
-				setResponseMessage("Schedule form submitted successfully.")
-				setCurrentStep(4) // Go to Thank You step
-				setFormData({
-					name: "",
-					streetAddress: "",
-					city: "",
-					state: "",
-					zipCode: "",
-					phoneNumber: "",
-					email: "",
-					consideredSellingDuration: "",
-					reasonsToSell: [],
-					sellingTimeframe: "",
-					askingPrice: ""
-				})
+				setTimeout(() => {
+					setIsLoading(false)
+					setResponseMessage("Schedule form submitted successfully.")
+					setCurrentStep(4) // Go to Thank You step
+					setFormData({
+						name: "",
+						streetAddress: "",
+						city: "",
+						state: "",
+						zipCode: "",
+						phoneNumber: "",
+						email: "",
+						consideredSellingDuration: "",
+						reasonsToSell: [],
+						sellingTimeframe: "",
+						askingPrice: ""
+					})
+				}, 5000)
 			} catch (error) {
+				setIsLoading(false)
 				setResponseMessage("An error occurred while submitting the form.")
 			}
 		}
@@ -241,9 +266,9 @@ const StepForm = () => {
 		const step = formSteps[currentStep - 1]
 		if (currentStep === 4) {
 			return (
-				<div className="flex flex-col items-center justify-center">
+				<div>
 					<h2 className="mb-4 text-[18px]">Thank You!</h2>
-					<p className="font-normal text-[20px]">Your form has been submitted successfully. We will get back to you soon.</p>
+					<p>Your form has been submitted successfully. We will get back to you soon.</p>
 				</div>
 			)
 		}
@@ -281,7 +306,7 @@ const StepForm = () => {
 				<p className="font-normal text-[16px] md:text-[20px] mb-5">
 					Fill out the form below to get a tailored offer from us
 				</p>
-				{renderFormStep()}
+				{isLoading ? <Spinner /> : renderFormStep()}
 				{/* {responseMessage && <p>{responseMessage}</p>} */}
 			</FormContainer>
 		</div>
