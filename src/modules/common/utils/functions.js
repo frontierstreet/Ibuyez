@@ -3,6 +3,7 @@ import { isEmpty, trim } from "lodash"
 import { isValidPhoneNumber } from "react-phone-number-input"
 // import CONSTANTS from "./constants";
 import toast from "react-hot-toast"
+import React from 'react';
 
 // const { routes } = CONSTANTS;
 

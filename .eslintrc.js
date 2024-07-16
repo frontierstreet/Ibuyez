@@ -5,7 +5,7 @@ module.exports = {
     },
     extends: [
         "plugin:react/recommended",
-        "plugin:prettier/recommended", // Uncomment this if you want to use prettier
+        // "plugin:prettier/recommended", // Uncomment this if you want to use prettier
         "react-app"
     ],
     overrides: [

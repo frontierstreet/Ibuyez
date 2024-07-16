@@ -1,6 +1,7 @@
 import { useMemo } from "react"
 import { Table } from "antd"
 import type { GetProp, TableProps } from "antd"
+import React from 'react';
 
 type ColumnsType<T> = TableProps<T>["columns"]
 type TablePaginationConfig = Exclude<GetProp<TableProps, "pagination">, boolean>

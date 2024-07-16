@@ -1,4 +1,5 @@
 import { Helmet } from "react-helmet-async"
+import React from 'react';
 
 export default function SEO({ title, description, image }) {
 	const parsedTitle = title ? `iBuyEZ || ${title}` : "iBuyEZ"
