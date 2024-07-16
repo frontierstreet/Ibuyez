@@ -18,7 +18,8 @@ const CONSTANTS = {
 		home: "/",
 		howWeBuy: "/how-we-buy",
 		about: "/about",
-		contact: "/contact"
+		contact: "/contact",
+		scheduleForm: "/schedule-form"
 	}
 }
 

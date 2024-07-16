@@ -1,5 +1,6 @@
 import { FieldValues, RegisterOptions } from "react-hook-form"
 
+// types/form.ts
 export type Option = string | number | { title: string; subtitle: string; image?: string }
 
 export interface FormOptionProps {
@@ -19,7 +20,7 @@ export interface FormOptionItemProps {
 
 export interface FormPageItem {
 	italicizeDescription?: boolean
-	type: "image-select" | "list" | "select" | "input" | "numeric-input"
+	type: "image-select" | "list" | "select" | "input" | "numeric-input" | "check-box"
 	label?: string
 	description?: string
 	options?: Option[]
@@ -56,6 +57,21 @@ export enum FormSteps {
 	homeBuilderSelect = "home-builder-select",
 	completion = "completion",
 	homeSituation = "home-situation"
+}
+
+export enum ScheduleSteps {
+	addressAndReasons = "address-and-reasons",
+	speedAndPrice = "speed-and-price",
+	completion = "completion"
+  }
+  
+
+export interface SchedulePageProps {
+	header: string
+	description: string
+	extraLeftHandSideElement?: React.ReactNode
+	items: FormPageItem[]
+	step: ScheduleSteps
 }
 
 export interface FormPageProps {
@@ -108,3 +124,19 @@ export interface FlattenedIbuyezSubmission extends Omit<IbuyezSubmission, "addre
 	zipCode: string
 	city: string
 }
+
+export interface ScheduleFormSubmission {
+	_id: string;
+	address: string;
+	phoneNumber: string;
+	email: string;
+	consideredSellingDuration: string;
+	reasonsToSell: string[];
+	sellingTimeframe: string;
+	askingPrice: string;
+	step: ScheduleSteps;
+  }
+  
+  export interface FlattenedScheduleFormSubmission extends Omit<ScheduleFormSubmission, "address"> {
+	address: string;
+  }
