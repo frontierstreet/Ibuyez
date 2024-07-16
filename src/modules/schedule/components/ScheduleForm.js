@@ -156,7 +156,7 @@ const StepForm = () => {
 						sellingTimeframe: "",
 						askingPrice: ""
 					})
-				}, 5000)
+				}, 2000)
 			} catch (error) {
 				setIsLoading(false)
 				setResponseMessage("An error occurred while submitting the form.")
@@ -299,7 +299,7 @@ const StepForm = () => {
 	return (
 		<div className="bg-blue min-h-[100vh]">
 			<div className="flex items-center justify-center bg-white shadow-sm py-5">
-				<img src={Logo} alt="logo" />
+				<a href="/"><img src={Logo} alt="logo" /></a>
 			</div>
 			<FormContainer>
 				<h1 className="font-bold text-[30px] md:text-[40px]">Sell Your House the EZ Way</h1>
