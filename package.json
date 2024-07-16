@@ -6,6 +6,7 @@
 		"@babel/core": "^7.24.6",
 		"@babel/plugin-syntax-flow": "^7.24.6",
 		"@babel/plugin-transform-react-jsx": "^7.24.6",
+		"@babel/runtime": "^7.24.8",
 		"@reduxjs/toolkit": "^2.2.5",
 		"@testing-library/dom": "^10.1.0",
 		"@testing-library/jest-dom": "^5.17.0",
