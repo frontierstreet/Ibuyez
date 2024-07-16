@@ -1,7 +1,7 @@
 import React, { useState } from "react"
-import axios from "axios"
 import styled from "styled-components"
 import scheduleService from "services/schedule-service"
+import Logo from "modules/common/assets/icons/logo1.svg"
 
 const FormContainer = styled.div`
 	max-width: 600px;
@@ -72,6 +72,7 @@ const StepForm = () => {
 
 	const [currentStep, setCurrentStep] = useState(1)
 	const [responseMessage, setResponseMessage] = useState("")
+	const [formErrors, setFormErrors] = useState({})
 
 	const handleChange = (e) => {
 		const { name, value, type, checked } = e.target
@@ -91,36 +92,91 @@ const StepForm = () => {
 		}
 	}
 
+	const validateStep = () => {
+		const errors = {}
+		if (currentStep === 1) {
+			if (!formData.name) errors.name = "Name is required"
+			if (!formData.streetAddress) errors.streetAddress = "Street Address is required"
+			if (!formData.city) errors.city = "City is required"
+			if (!formData.state) errors.state = "State is required"
+			if (!formData.zipCode) errors.zipCode = "Zip Code is required"
+		} else if (currentStep === 2) {
+			if (!formData.phoneNumber) errors.phoneNumber = "Phone Number is required"
+			if (!formData.email) errors.email = "Email is required"
+		} else if (currentStep === 3) {
+			if (!formData.consideredSellingDuration) errors.consideredSellingDuration = "Considered Selling Duration is required"
+			if (formData.reasonsToSell.length === 0) errors.reasonsToSell = "At least one Reason to Sell is required"
+			if (!formData.sellingTimeframe) errors.sellingTimeframe = "Selling Timeframe is required"
+			if (!formData.askingPrice) errors.askingPrice = "Asking Price is required"
+		}
+		setFormErrors(errors)
+		return Object.keys(errors).length === 0
+	}
+
 	const handleSubmit = async (e) => {
 		e.preventDefault()
-		try {
-			const response = await scheduleService.scheduleForm(formData)
-			setResponseMessage("Schedule form submitted successfully.")
-			setFormData({
-				name: "",
-				streetAddress: "",
-				city: "",
-				state: "",
-				zipCode: "",
-				phoneNumber: "",
-				email: "",
-				consideredSellingDuration: "",
-				reasonsToSell: [],
-				sellingTimeframe: "",
-				askingPrice: ""
-			})
-		} catch (error) {
-			setResponseMessage("An error occurred while submitting the form.")
+		if (validateStep()) {
+			try {
+				await scheduleService.scheduleForm(formData)
+				setResponseMessage("Schedule form submitted successfully.")
+				setCurrentStep(4) // Go to Thank You step
+				setFormData({
+					name: "",
+					streetAddress: "",
+					city: "",
+					state: "",
+					zipCode: "",
+					phoneNumber: "",
+					email: "",
+					consideredSellingDuration: "",
+					reasonsToSell: [],
+					sellingTimeframe: "",
+					askingPrice: ""
+				})
+			} catch (error) {
+				setResponseMessage("An error occurred while submitting the form.")
+			}
 		}
 	}
 
-	const nextStep = () => setCurrentStep(currentStep + 1)
+	const nextStep = () => {
+		if (validateStep()) {
+			setCurrentStep(currentStep + 1)
+		}
+	}
+
 	const prevStep = () => setCurrentStep(currentStep - 1)
 
 	const renderFormInput = (label, name, type = "text", value) => (
 		<FormGroup key={name}>
 			<FormLabel>{label}:</FormLabel>
-			<FormInput type={type} name={name} value={value} onChange={handleChange} required />
+			<FormInput
+				type={type}
+				name={name}
+				value={value}
+				onChange={handleChange}
+				required
+			/>
+			{formErrors[name] && <p style={{ color: 'red' }}>{formErrors[name]}</p>}
+		</FormGroup>
+	)
+
+	const renderCheckboxGroup = (label, name, options, value) => (
+		<FormGroup key={name}>
+			<FormLabel>{label}:</FormLabel>
+			{options.map((option) => (
+				<FormCheckboxLabel key={option}>
+					<input
+						type="checkbox"
+						name={name}
+						value={option}
+						checked={value.includes(option)}
+						onChange={handleChange}
+					/>{" "}
+					{option}
+				</FormCheckboxLabel>
+			))}
+			{formErrors[name] && <p style={{ color: 'red' }}>{formErrors[name]}</p>}
 		</FormGroup>
 	)
 
@@ -173,28 +229,31 @@ const StepForm = () => {
 				{ label: "Previous", action: prevStep },
 				{ label: "Submit", action: handleSubmit, isSubmit: true }
 			]
+		},
+		{
+			title: "Thank You",
+			fields: [],
+			buttons: []
 		}
 	]
 
 	const renderFormStep = () => {
 		const step = formSteps[currentStep - 1]
+		if (currentStep === 4) {
+			return (
+				<div className="flex flex-col items-center justify-center">
+					<h2 className="mb-4 text-[18px]">Thank You!</h2>
+					<p className="font-normal text-[20px]">Your form has been submitted successfully. We will get back to you soon.</p>
+				</div>
+			)
+		}
+
 		return (
 			<form onSubmit={handleSubmit}>
-				<h2>{step.title}</h2>
+				<h2 className="mb-4 text-[18px]">{step.title}</h2>
 				{step.fields.map((field) =>
 					field.type === "checkbox"
-						? field.options.map((option) => (
-								<FormCheckboxLabel key={option}>
-									<input
-										type="checkbox"
-										name={field.name}
-										value={option}
-										checked={formData.reasonsToSell.includes(option)}
-										onChange={handleChange}
-									/>{" "}
-									{option}
-								</FormCheckboxLabel>
-							))
+						? renderCheckboxGroup(field.label, field.name, field.options, formData[field.name])
 						: renderFormInput(field.label, field.name, field.type, formData[field.name])
 				)}
 				<ButtonContainer>
@@ -202,7 +261,8 @@ const StepForm = () => {
 						<Button
 							key={button.label}
 							type={button.isSubmit ? "submit" : "button"}
-							onClick={button.action}>
+							onClick={button.action}
+						>
 							{button.label}
 						</Button>
 					))}
@@ -212,11 +272,19 @@ const StepForm = () => {
 	}
 
 	return (
-		<FormContainer>
-			<h1>Step Form</h1>
-			{renderFormStep()}
-			{responseMessage && <p>{responseMessage}</p>}
-		</FormContainer>
+		<div className="bg-blue min-h-[100vh]">
+			<div className="flex items-center justify-center bg-white shadow-sm py-5">
+				<img src={Logo} alt="logo" />
+			</div>
+			<FormContainer>
+				<h1 className="font-bold text-[30px] md:text-[40px]">Sell Your House the EZ Way</h1>
+				<p className="font-normal text-[16px] md:text-[20px] mb-5">
+					Fill out the form below to get a tailored offer from us
+				</p>
+				{renderFormStep()}
+				{/* {responseMessage && <p>{responseMessage}</p>} */}
+			</FormContainer>
+		</div>
 	)
 }
 
