@@ -7,8 +7,8 @@ const FormContainer = styled.div`
     margin: 0 auto;
     padding: 20px;
     background-color: #f9f9f9;
-    border: 1px solid #ccc;
     border-radius: 5px;
+    margin-top: 50px;
 `;
 
 const FormGroup = styled.div`
@@ -43,14 +43,14 @@ const Button = styled.button`
     margin-right: 10px;
     font-size: 14px;
     cursor: pointer;
-    background-color: #007bff;
+    background-color: black;
     color: #fff;
     border: none;
     border-radius: 3px;
     transition: background-color 0.3s;
 
     &:hover {
-        background-color: #0056b3;
+        background-color: #333;
     }
 `;
 
@@ -94,7 +94,6 @@ const StepForm = () => {
         e.preventDefault();
         try {
             const response = await axios.post('/api/v1/schedule-form', formData);
-            // console.log(formData)
             setResponseMessage('Schedule form submitted successfully.');
             setFormData({
                 name: '',
@@ -114,98 +113,95 @@ const StepForm = () => {
         }
     };
 
-    const nextStep = () => {
-        setCurrentStep(currentStep + 1);
-    };
+    const nextStep = () => setCurrentStep(currentStep + 1);
+    const prevStep = () => setCurrentStep(currentStep - 1);
 
-    const prevStep = () => {
-        setCurrentStep(currentStep - 1);
-    };
+    const renderFormInput = (label, name, type = 'text', value) => (
+        <FormGroup key={name}>
+            <FormLabel>{label}:</FormLabel>
+            <FormInput type={type} name={name} value={value} onChange={handleChange} required />
+        </FormGroup>
+    );
+
+    const formSteps = [
+        {
+            title: 'Step 1: Personal Information',
+            fields: [
+                { label: 'Name', name: 'name' },
+                { label: 'Street Address', name: 'streetAddress' },
+                { label: 'City', name: 'city' },
+                { label: 'State', name: 'state' },
+                { label: 'Zip Code', name: 'zipCode' },
+            ],
+            buttons: [
+                { label: 'Next', action: nextStep },
+            ],
+        },
+        {
+            title: 'Step 2: Contact Information',
+            fields: [
+                { label: 'Phone Number', name: 'phoneNumber' },
+                { label: 'Email', name: 'email', type: 'email' },
+            ],
+            buttons: [
+                { label: 'Previous', action: prevStep },
+                { label: 'Next', action: nextStep },
+            ],
+        },
+        {
+            title: 'Step 3: Selling Details',
+            fields: [
+                { label: 'Considered Selling Duration', name: 'consideredSellingDuration' },
+                {
+                    label: 'Reasons to Sell', name: 'reasonsToSell', type: 'checkbox',
+                    options: [
+                        'For Sale By Owner', 'Vacant property', 'Divorce', 'Pre foreclosure',
+                        'Death in the family', 'Relocation', 'A tired landlord', 'Inherited property'
+                    ]
+                },
+                { label: 'Selling Timeframe', name: 'sellingTimeframe' },
+                { label: 'Asking Price', name: 'askingPrice', type: 'number' },
+            ],
+            buttons: [
+                { label: 'Previous', action: prevStep },
+                { label: 'Submit', action: handleSubmit, isSubmit: true },
+            ],
+        },
+    ];
 
     const renderFormStep = () => {
-        switch (currentStep) {
-            case 1:
-                return (
-                    <form onSubmit={handleSubmit}>
-                        <h2>Step 1: Personal Information</h2>
-                        <FormGroup>
-                            <FormLabel>Name:</FormLabel>
-                            <FormInput type="text" name="name" value={formData.name} onChange={handleChange} required />
-                        </FormGroup>
-                        <FormGroup>
-                            <FormLabel>Street Address:</FormLabel>
-                            <FormInput type="text" name="streetAddress" value={formData.streetAddress} onChange={handleChange} required />
-                        </FormGroup>
-                        <FormGroup>
-                            <FormLabel>City:</FormLabel>
-                            <FormInput type="text" name="city" value={formData.city} onChange={handleChange} required />
-                        </FormGroup>
-                        <FormGroup>
-                            <FormLabel>State:</FormLabel>
-                            <FormInput type="text" name="state" value={formData.state} onChange={handleChange} required />
-                        </FormGroup>
-                        <FormGroup>
-                            <FormLabel>Zip Code:</FormLabel>
-                            <FormInput type="text" name="zipCode" value={formData.zipCode} onChange={handleChange} required />
-                        </FormGroup>
-                        <ButtonContainer>
-                            <Button type="button" onClick={nextStep}>Next</Button>
-                        </ButtonContainer>
-                    </form>
-                );
-            case 2:
-                return (
-                   <form onSubmit={handleSubmit}>
-                        <h2>Step 2: Contact Information</h2>
-                        <FormGroup>
-                            <FormLabel>Phone Number:</FormLabel>
-                            <FormInput type="text" name="phoneNumber" value={formData.phoneNumber} onChange={handleChange} required />
-                        </FormGroup>
-                        <FormGroup>
-                            <FormLabel>Email:</FormLabel>
-                            <FormInput type="email" name="email" value={formData.email} onChange={handleChange} required />
-                        </FormGroup>
-                        <ButtonContainer>
-                            <Button type="button" onClick={prevStep}>Previous</Button>
-                            <Button type="button" onClick={nextStep}>Next</Button>
-                        </ButtonContainer>
-                    </form>
-                );
-            case 3:
-                return (
-                    <form onSubmit={handleSubmit}>
-                        <h2>Step 3: Selling Details</h2>
-                        <FormGroup>
-                            <FormLabel>Considered Selling Duration:</FormLabel>
-                            <FormInput type="text" name="consideredSellingDuration" value={formData.consideredSellingDuration} onChange={handleChange} required />
-                        </FormGroup>
-                        <FormGroup>
-                            <FormLabel>Reasons to Sell:</FormLabel><br />
-                            <FormCheckboxLabel>
-                                <input type="checkbox" name="reasonsToSell" value="For Sale By Owner" checked={formData.reasonsToSell.includes('For Sale By Owner')} onChange={handleChange} /> For Sale By Owner
+        const step = formSteps[currentStep - 1];
+        return (
+            <form onSubmit={handleSubmit}>
+                <h2>{step.title}</h2>
+                {step.fields.map(field => (
+                    field.type === 'checkbox'
+                        ? field.options.map(option => (
+                            <FormCheckboxLabel key={option}>
+                                <input
+                                    type="checkbox"
+                                    name={field.name}
+                                    value={option}
+                                    checked={formData.reasonsToSell.includes(option)}
+                                    onChange={handleChange}
+                                /> {option}
                             </FormCheckboxLabel>
-                            <FormCheckboxLabel>
-                                <input type="checkbox" name="reasonsToSell" value="Vacant property" checked={formData.reasonsToSell.includes('Vacant property')} onChange={handleChange} /> Vacant property
-                            </FormCheckboxLabel>
-                            
-                        </FormGroup>
-                        <FormGroup>
-                            <FormLabel>Selling Timeframe:</FormLabel>
-                            <FormInput type="text" name="sellingTimeframe" value={formData.sellingTimeframe} onChange={handleChange} required />
-                        </FormGroup>
-                        <FormGroup>
-                            <FormLabel>Asking Price:</FormLabel>
-                            <FormInput type="number" name="askingPrice" value={formData.askingPrice} onChange={handleChange} required />
-                        </FormGroup>
-                        <ButtonContainer>
-                            <Button type="button" onClick={prevStep}>Previous</Button>
-                            <Button type="submit">Submit</Button>
-                        </ButtonContainer>
-                    </form>
-                );
-            default:
-                return null;
-        }
+                        ))
+                        : renderFormInput(field.label, field.name, field.type, formData[field.name])
+                ))}
+                <ButtonContainer>
+                    {step.buttons.map(button => (
+                        <Button
+                            key={button.label}
+                            type={button.isSubmit ? 'submit' : 'button'}
+                            onClick={button.action}
+                        >
+                            {button.label}
+                        </Button>
+                    ))}
+                </ButtonContainer>
+            </form>
+        );
     };
 
     return (
