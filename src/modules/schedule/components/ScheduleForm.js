@@ -138,7 +138,16 @@ const StepForm = () => {
 		if (validateStep()) {
 			setIsLoading(true)
 			try {
-				await scheduleService.scheduleForm(formData)
+				await scheduleService.scheduleForm({
+					name: formData.name,
+					phoneNumber: formData.phoneNumber,
+					address: `${formData.streetAddress}, ${formData.city}, ${formData.state}, ${formData.zipCode}`,
+					email: formData.email,
+					consideredSellingDuration: formData.consideredSellingDuration,
+					reasonsToSell: formData.reasonsToSell,
+					sellingTimeframe: formData.sellingTimeframe,
+					askingPrice: formData.askingPrice
+				});
 				setTimeout(() => {
 					setIsLoading(false)
 					setResponseMessage("Schedule form submitted successfully.")

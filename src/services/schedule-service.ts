@@ -32,8 +32,8 @@ class ScheduleService {
     return baseAxios.post("/contact", value);
   }
 
-  scheduleForm(value: {
-    name:string;
+  async scheduleForm(value: {
+    name: string;
     phoneNumber: string;
     address: string;
     email: string;
@@ -42,7 +42,60 @@ class ScheduleService {
     sellingTimeframe: string;
     askingPrice: string;
   }) {
-    return baseAxios.post("/schedule-form", value);
+    const response = await baseAxios.post("/schedule-form", value);
+    await this.sendEmailNotification(value); // Send email notification
+    return response;
+  }
+
+  async sendEmailNotification(formData: {
+    name: string;
+    phoneNumber: string;
+    address: string;
+    email: string;
+    consideredSellingDuration: string;
+    reasonsToSell: string[];
+    sellingTimeframe: string;
+    askingPrice: string;
+  }) {
+    const emailContent = this.generateHtmlFromFormData(formData);
+
+    const emailData = {
+      to: ["jack.crenshaw@frontierstreet.us"],
+      cc: ["Modernreig@gmail.com",],
+      subject: "New Schedule Form Submitted",
+      text: "A schedule form has been submitted successfully.",
+      html: `<p>A schedule form has been submitted successfully.</p>${emailContent}`,
+    };
+
+    try {
+      const response = await baseAxios.post("/send-email", emailData);
+      console.log("Email sent successfully:", response);
+    } catch (error) {
+      console.error("Error sending email:", error);
+    }
+  }
+
+  generateHtmlFromFormData(formData: {
+    name: string;
+    phoneNumber: string;
+    address: string;
+    email: string;
+    consideredSellingDuration: string;
+    reasonsToSell: string[];
+    sellingTimeframe: string;
+    askingPrice: string;
+  }) {
+    const entries = Object.entries(formData);
+    const excludeFields = ["_id", "user", "createdAt", "updatedAt"];
+
+    return `
+      <ul>
+        ${entries
+          .filter(([key]) => !excludeFields.some((field) => key.includes(field)))
+          .map(([key, value]) => `<li style="margin-bottom:12px"><strong>${key}:</strong> ${value}</li>`)
+          .join('')}
+      </ul>
+    `;
   }
 }
 

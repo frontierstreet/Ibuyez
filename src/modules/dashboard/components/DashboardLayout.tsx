@@ -17,9 +17,10 @@ const { Header, Sider, Content } = Layout
 
 const routes = {
 	submissions: "/dashboard/pages/submissions",
+	ScheduleSubmissions: "/dashboard/pages/schedule-submissions",
 	contactForms: "/dashboard/pages/contact-forms",
 	contacts: "/dashboard/pages/contacts",
-	addContact: "/dashboard/pages/contacts/add"
+	addContact: "/dashboard/pages/contacts/add",
 }
 
 const LogoutModal = () => {
@@ -100,6 +101,12 @@ const DashboardLayout: React.FC = () => {
 								icon: <HomeOutlined />,
 								label: "Submissions",
 								onClick: () => navigate(routes.submissions)
+							},
+							{
+								key: routes.ScheduleSubmissions,
+								icon: <HomeOutlined />,
+								label: "Schedule Form",
+								onClick: () => navigate(routes.ScheduleSubmissions)
 							},
 							{
 								key: routes.contactForms,

@@ -11,6 +11,7 @@ import React, { useEffect, useState } from "react";
 import { situations } from "modules/home/components/landing/situations";
 import DashboardLogin from "modules/dashboard/pages/login";
 import Submissions from "modules/dashboard/pages/submissions";
+import ScheduleSubmissions from "modules/dashboard/pages/scheduleForm/Schedule";
 import DashboardLayout from "modules/dashboard/components/DashboardLayout";
 import { useLazyGetProfileQuery } from "store/api/dashboard-service";
 import { useDispatch } from "react-redux";
@@ -54,6 +55,7 @@ const Router = () => {
       Component: DashboardLayout,
       children: [
         { path: "submissions", Component: Submissions },
+        { path: "schedule-submissions", Component: ScheduleSubmissions },
         { path: "contact-forms", Component: ContactForms },
         { path: "contacts", Component: ContactList },
         { path: "contacts/add/", Component: AddContact }

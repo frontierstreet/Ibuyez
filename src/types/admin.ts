@@ -56,3 +56,19 @@ export interface ContactType {
 	phoneNumbers?: string[]
 	emails?: string[]
 }
+
+export interface ScheduleSubmissionType {
+	_id:string
+	name?: string,
+	streetAddress?: string,
+	city?: string,
+	state?: string,
+	zipCode?: string,
+	phoneNumber?: string,
+	email?: string,
+	consideredSellingDuration?: string,
+	reasonsToSell?: string[],
+	sellingTimeframe?:string
+	askingPrice?: string
+	createdAt: string
+}
