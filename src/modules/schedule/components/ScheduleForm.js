@@ -141,7 +141,10 @@ const StepForm = () => {
 				await scheduleService.scheduleForm({
 					name: formData.name,
 					phoneNumber: formData.phoneNumber,
-					streetAddress: `${formData.streetAddress}, ${formData.city}, ${formData.state}, ${formData.zipCode}`,
+					streetAddress:formData.streetAddress,
+                    city:formData.city,
+                    state: formData.state,
+                    zipCode:formData.zipCode,
 					email: formData.email,
 					consideredSellingDuration: formData.consideredSellingDuration,
 					reasonsToSell: formData.reasonsToSell,
