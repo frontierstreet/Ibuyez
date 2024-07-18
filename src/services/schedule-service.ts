@@ -36,6 +36,9 @@ class ScheduleService {
     name: string;
     phoneNumber: string;
     streetAddress: string;
+    city:string;
+    state:string;
+    zipCode:string;
     email: string;
     consideredSellingDuration: string;
     reasonsToSell: string[];
@@ -51,6 +54,9 @@ class ScheduleService {
     name: string;
     phoneNumber: string;
     streetAddress: string;
+    city:string;
+    state:string;
+    zipCode:string;
     email: string;
     consideredSellingDuration: string;
     reasonsToSell: string[];
@@ -79,6 +85,9 @@ class ScheduleService {
     name: string;
     phoneNumber: string;
     streetAddress: string;
+    city:string;
+    state:string;
+    zipCode:string;
     email: string;
     consideredSellingDuration: string;
     reasonsToSell: string[];
