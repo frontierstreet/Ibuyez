@@ -35,7 +35,7 @@ class ScheduleService {
   async scheduleForm(value: {
     name: string;
     phoneNumber: string;
-    address: string;
+    streetAddress: string;
     email: string;
     consideredSellingDuration: string;
     reasonsToSell: string[];
@@ -50,7 +50,7 @@ class ScheduleService {
   async sendEmailNotification(formData: {
     name: string;
     phoneNumber: string;
-    address: string;
+    streetAddress: string;
     email: string;
     consideredSellingDuration: string;
     reasonsToSell: string[];
@@ -78,7 +78,7 @@ class ScheduleService {
   generateHtmlFromFormData(formData: {
     name: string;
     phoneNumber: string;
-    address: string;
+    streetAddress: string;
     email: string;
     consideredSellingDuration: string;
     reasonsToSell: string[];
