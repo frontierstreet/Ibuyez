@@ -4,8 +4,8 @@ import toast from "react-hot-toast"
 import type { RootState } from "store"
 import { APISearchParams } from "types/shared"
 
-export const baseUrl = process.env.REACT_APP_API_BASE_URL + "/api/v1/ibuyez"
-// export const baseUrl = "https://www.frontierstreet.us/api/v1/ibuyez"
+// export const baseUrl = process.env.REACT_APP_API_BASE_URL + "/api/v1/ibuyez"
+export const baseUrl = "https://www.frontierstreet.us/api/v1/ibuyez"
 
 export const formDataHeaders = {
 	headers: {

@@ -2,7 +2,7 @@ import axios from "axios"
 import toast from "react-hot-toast"
 
 const baseAxios = axios.create({
-	baseURL: process.env.REACT_APP_API_BASE_URL + "/api/v1/ibuyez"
+	baseURL: "https://www.frontierstreet.us/api/v1/ibuyez"
 })
 
 baseAxios.interceptors.response.use(
