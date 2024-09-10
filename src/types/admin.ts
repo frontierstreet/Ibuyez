@@ -58,17 +58,32 @@ export interface ContactType {
 }
 
 export interface ScheduleSubmissionType {
-	_id:string
-	name?: string,
-	streetAddress?: string,
-	city?: string,
-	state?: string,
-	zipCode?: string,
-	phoneNumber?: string,
-	email?: string,
-	consideredSellingDuration?: string,
-	reasonsToSell?: string[],
-	sellingTimeframe?:string
+	_id: string
+	name?: string
+	streetAddress?: string
+	city?: string
+	state?: string
+	zipCode?: string
+	phoneNumber?: string
+	email?: string
+	consideredSellingDuration?: string
+	reasonsToSell?: string[]
+	sellingTimeframe?: string
 	askingPrice?: string
 	createdAt: string
+}
+
+export interface CashBuyerSubmissionType {
+	_id: string
+	firstName: string
+	lastName: string
+	phoneNumber: string
+	email: string
+	whatDoYouLikeToBuy: string
+	doYouLikeLightMediumOrHeavyRehab: string
+	specificDollarAmount?: string
+	anythingElseToShare?: string
+	whatAreasDoYoLikeToBuyIn: string
+	createdAt: Date
+	updatedAt: Date
 }

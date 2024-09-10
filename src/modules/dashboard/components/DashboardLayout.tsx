@@ -17,10 +17,11 @@ const { Header, Sider, Content } = Layout
 
 const routes = {
 	submissions: "/dashboard/pages/submissions",
+	CashBuyersSubmissions: "/dashboard/pages/cash-buyer-submissions",
 	ScheduleSubmissions: "/dashboard/pages/schedule-submissions",
 	contactForms: "/dashboard/pages/contact-forms",
 	contacts: "/dashboard/pages/contacts",
-	addContact: "/dashboard/pages/contacts/add",
+	addContact: "/dashboard/pages/contacts/add"
 }
 
 const LogoutModal = () => {
@@ -96,6 +97,12 @@ const DashboardLayout: React.FC = () => {
 						mode="inline"
 						selectedKeys={[pathname]}
 						items={[
+							{
+								key: routes.CashBuyersSubmissions,
+								icon: <HomeOutlined />,
+								label: "Cash Buyers",
+								onClick: () => navigate(routes.CashBuyersSubmissions)
+							},
 							{
 								key: routes.submissions,
 								icon: <HomeOutlined />,

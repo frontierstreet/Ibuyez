@@ -21,6 +21,7 @@ import ContactList from "modules/dashboard/pages/contacts"
 import AddContact from "modules/dashboard/pages/contacts/AddContact"
 import ScheduleForm from "modules/schedule/components/ScheduleForm"
 import CashBuyerForm from "modules/CashBuyerForm"
+import CashBuyer from "modules/dashboard/pages/cashBuyerForm/CashBuyer"
 
 // import { scheduleService } from "./path/to/ScheduleService"; // Assuming you have a service for handling schedule form submissions
 const { routes } = CONSTANTS
@@ -58,6 +59,7 @@ const Router = () => {
 			children: [
 				{ path: "submissions", Component: Submissions },
 				{ path: "schedule-submissions", Component: ScheduleSubmissions },
+				{ path: "cash-buyer-submissions", Component: CashBuyer },
 				{ path: "contact-forms", Component: ContactForms },
 				{ path: "contacts", Component: ContactList },
 				{ path: "contacts/add/", Component: AddContact }

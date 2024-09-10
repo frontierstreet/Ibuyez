@@ -1,7 +1,13 @@
 import { createApi } from "@reduxjs/toolkit/query/react"
 import { POST, baseQuery, getParamsFromSearchParams } from "./utils"
 import { APISearchParams, PaginatedData } from "types/shared"
-import { ContactFormType, ContactType, IbuyezSubmissionType, ScheduleSubmissionType} from "types/admin"
+import {
+	ContactFormType,
+	ContactType,
+	IbuyezSubmissionType,
+	ScheduleSubmissionType,
+	CashBuyerSubmissionType
+} from "types/admin"
 
 interface LoginResponse {
 	email: string
@@ -42,9 +48,21 @@ export const authApi = createApi({
 				params: getParamsFromSearchParams(params)
 			})
 		}),
-		getScheduleSubmissions: builder.query<PaginatedData<ScheduleSubmissionType>, APISearchParams>({
+		getScheduleSubmissions: builder.query<
+			PaginatedData<ScheduleSubmissionType>,
+			APISearchParams
+		>({
 			query: (params) => ({
 				url: "/admin/schedule-submissions",
+				params: getParamsFromSearchParams(params)
+			})
+		}),
+		getCashBuyerSubmissions: builder.query<
+			PaginatedData<CashBuyerSubmissionType>,
+			APISearchParams
+		>({
+			query: (params) => ({
+				url: "/admin/cash-buyer-submissions",
 				params: getParamsFromSearchParams(params)
 			})
 		}),
@@ -77,6 +95,7 @@ export const {
 	useLazyGetProfileQuery,
 	useGetSubmissionsQuery,
 	useGetScheduleSubmissionsQuery,
+	useGetCashBuyerSubmissionsQuery,
 	useGetContactFormsQuery,
 	useAddContactMutation,
 	useGetContactsQuery
