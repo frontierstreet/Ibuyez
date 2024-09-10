@@ -19,7 +19,8 @@ const CONSTANTS = {
 		howWeBuy: "/how-we-buy",
 		about: "/about",
 		contact: "/contact",
-		scheduleForm: "/schedule-form"
+		scheduleForm: "/schedule-form",
+		cashBuyerForm: "/cash-buyer-form"
 	}
 }
 

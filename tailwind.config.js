@@ -14,8 +14,8 @@ module.exports = {
 			colors: {
 				border: "#ccc",
 				primary: "#3A0CA3",
-				blue: "#4dabd9",
-				yellow:"#fddf14",
+				blue: "rgb(37, 147, 254)",
+				yellow: "#fddf14",
 				D50100: "#D50100",
 				FEDF18: "#FEDF18",
 				_14142B: "#14142B",
