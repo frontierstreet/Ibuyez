@@ -90,6 +90,7 @@ const CashBuyerForm = () => {
 		firstName: "",
 		lastName: "",
 		phoneNumber: "",
+		whatAreasDoYoLikeToBuyIn: "",
 		whatDoYouLikeToBuy: "",
 		doYouLikeLightMediumOrHeavyRehab: "",
 		specificDollarAmount: "",
@@ -122,6 +123,7 @@ const CashBuyerForm = () => {
 				firstName: "",
 				lastName: "",
 				phoneNumber: "",
+				whatAreasDoYoLikeToBuyIn: "",
 				whatDoYouLikeToBuy: "",
 				doYouLikeLightMediumOrHeavyRehab: "",
 				specificDollarAmount: "",
@@ -197,6 +199,16 @@ const CashBuyerForm = () => {
 								/>
 							</FormGroup>
 						</FormRow>
+						<FormGroup>
+							<FormLabel>What Areas Do You Like to Buy In?</FormLabel>
+							<FormInput
+								type="text"
+								name="whatAreasDoYoLikeToBuyIn"
+								value={formData.whatAreasDoYoLikeToBuyIn}
+								onChange={handleChange}
+								required
+							/>
+						</FormGroup>
 
 						<FormGroup>
 							<FormLabel>What Do You Like to Buy?</FormLabel>

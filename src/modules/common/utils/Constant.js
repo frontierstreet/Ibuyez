@@ -20,7 +20,7 @@ const CONSTANTS = {
 		about: "/about",
 		contact: "/contact",
 		scheduleForm: "/schedule-form",
-		cashBuyerForm: "/cash-buyer-form"
+		cashBuyerForm: "/buyer-form"
 	}
 }
 
